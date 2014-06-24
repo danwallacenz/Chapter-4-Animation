@@ -204,6 +204,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = nz.co.datacom.danielw;
 				TargetAttributes = {
+					CBF95FFD19592F9D00BE37A1 = {
+						DevelopmentTeam = JP5YDXJS2P;
+					};
 					CBF9602119592F9D00BE37A1 = {
 						TestTargetID = CBF95FFD19592F9D00BE37A1;
 					};
@@ -384,10 +387,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chapter-4-Animations/Chapter-4-Animations-Prefix.pch";
 				INFOPLIST_FILE = "Chapter-4-Animations/Chapter-4-Animations-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -397,10 +402,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chapter-4-Animations/Chapter-4-Animations-Prefix.pch";
 				INFOPLIST_FILE = "Chapter-4-Animations/Chapter-4-Animations-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
