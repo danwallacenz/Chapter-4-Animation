@@ -22,7 +22,10 @@
 
 @property UIImageView *flashingImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *pacmanImageView;
+
 @property BOOL buttonIsAnimating;
+
 @end
 
 @implementation FirstViewController
@@ -105,6 +108,8 @@
     self.durationLabel.text = [NSString stringWithFormat:@"%0.f ms", self.durationStepper.value ];
     
     self.buttonIsAnimating = NO;
+    
+    self.pacmanImageView.image = [UIImage animatedImageNamed:@"pac" duration:0.5];
     
 }
 @end

@@ -22,6 +22,7 @@
 		CBF9602619592F9D00BE37A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600519592F9D00BE37A1 /* UIKit.framework */; };
 		CBF9602E19592F9D00BE37A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBF9602C19592F9D00BE37A1 /* InfoPlist.strings */; };
 		CBF9603019592F9D00BE37A1 /* Chapter_4_AnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF9602F19592F9D00BE37A1 /* Chapter_4_AnimationsTests.m */; };
+		CBF9603A1959702900BE37A1 /* Pacman.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF960391959702900BE37A1 /* Pacman.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		CBF9602B19592F9D00BE37A1 /* Chapter-4-AnimationsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chapter-4-AnimationsTests-Info.plist"; sourceTree = "<group>"; };
 		CBF9602D19592F9D00BE37A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CBF9602F19592F9D00BE37A1 /* Chapter_4_AnimationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapter_4_AnimationsTests.m; sourceTree = "<group>"; };
+		CBF960391959702900BE37A1 /* Pacman.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pacman.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				CBF9601919592F9D00BE37A1 /* SecondViewController.h */,
 				CBF9601A19592F9D00BE37A1 /* SecondViewController.m */,
 				CBF9601C19592F9D00BE37A1 /* Images.xcassets */,
+				CBF960391959702900BE37A1 /* Pacman.xcassets */,
 				CBF9600819592F9D00BE37A1 /* Supporting Files */,
 			);
 			path = "Chapter-4-Animations";
@@ -239,6 +242,7 @@
 				CBF9601D19592F9D00BE37A1 /* Images.xcassets in Resources */,
 				CBF9600C19592F9D00BE37A1 /* InfoPlist.strings in Resources */,
 				CBF9601519592F9D00BE37A1 /* Main.storyboard in Resources */,
+				CBF9603A1959702900BE37A1 /* Pacman.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
