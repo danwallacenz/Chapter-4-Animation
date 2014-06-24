@@ -18,7 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *animatedButton;
+
 @property UIImageView *flashingImageView;
+
+@property BOOL buttonIsAnimating;
 @end
 
 @implementation FirstViewController
@@ -44,14 +48,33 @@
     [self.flashingImageView stopAnimating];
 }
 
-- (void)viewDidLoad
+
+- (IBAction)animatedButtonTapped:(UIButton *)sender
 {
-    [super viewDidLoad];
+    self.buttonIsAnimating = !self.buttonIsAnimating;
+    if(self.buttonIsAnimating){
+        [self animateButton];
+    }else{
+        [self.animatedButton setImage:nil forState:UIControlStateNormal];
+    }
+}
 
-    self.repeatLabel.text = [NSString stringWithFormat:@"%0.f", self.repeatStepper.value ];
-    
-    self.durationLabel.text = [NSString stringWithFormat:@"%0.f ms", self.durationStepper.value ];
-
+-(void) animateButton
+{
+    NSMutableArray *circles = [NSMutableArray array];
+    float w = 18;
+    for (int i = 0; i < 6; i++) {
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(w, w), NO, 0);
+        CGContextRef con =  UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(con, [UIColor redColor].CGColor);
+        CGContextAddEllipseInRect(con, CGRectMake(0+i, 0+i, w-i*2, w-i*2));
+        CGContextFillPath(con);
+        UIImage *circle = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [circles addObject: circle];
+    }
+    UIImage *animatedImage = [UIImage animatedImageWithImages:circles duration:0.5];
+    [self.animatedButton setImage:animatedImage forState:UIControlStateNormal];
 }
 
 -(void)flashMars
@@ -72,4 +95,16 @@
     [self.flashingImageView startAnimating];
 }
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.repeatLabel.text = [NSString stringWithFormat:@"%0.f", self.repeatStepper.value ];
+    
+    self.durationLabel.text = [NSString stringWithFormat:@"%0.f ms", self.durationStepper.value ];
+    
+    self.buttonIsAnimating = NO;
+    
+}
 @end
