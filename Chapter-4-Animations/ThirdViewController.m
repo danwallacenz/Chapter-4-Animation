@@ -18,16 +18,24 @@
 @property (weak, nonatomic) IBOutlet UIStepper *initialSpringVelocityStepper;
 @property (weak, nonatomic) IBOutlet UILabel *initialSpringVelocityStepperValueLabel;
 
+@property (weak, nonatomic) IBOutlet UISlider *dampingSlider;
+@property (weak, nonatomic) IBOutlet UILabel *dampingValueLabel;
 @end
 
 @implementation ThirdViewController
 
 #pragma mark - Springing View Animation
 
+
+- (IBAction)dampingSliderChanged:(UISlider *)sender
+{
+    self.dampingValueLabel.text = [NSString stringWithFormat:@"%1.1f", sender.value ];
+}
+
+
 - (IBAction)initialSpringVelocityStepperChanged:(UIStepper *)sender
 {
     self.initialSpringVelocityStepperValueLabel.text = [NSString stringWithFormat:@"%0.f", sender.value ];
-
 }
 
 - (IBAction)distanceSliderChanged:(UISlider *)sender
@@ -41,7 +49,7 @@
     sender.enabled = NO;
     self.leftButton.enabled = YES;
     
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping: self.dampingSlider.value initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
         CGPoint center = self.orangeRectangle.center;
         center.x += self.distanceSlider.value;
         self.orangeRectangle.center = center;
@@ -54,7 +62,7 @@
     sender.enabled = NO;
     self.rightButton.enabled = YES;
     
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping: self.dampingSlider.value initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
         CGPoint center = self.orangeRectangle.center;
         center.x -= self.distanceSlider.value;
         self.orangeRectangle.center = center;

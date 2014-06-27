@@ -721,16 +721,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="RhO-tA-wic">
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="RhO-tA-wic">
                                 <rect key="frame" x="20" y="323" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="initialSpringVelocityStepperChanged:" destination="0JT-SL-9UY" eventType="valueChanged" id="Sg6-HQ-NPF"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="initialSpringVelocity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-ul-68y">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="initialSpringVelocity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-ul-68y">
                                 <rect key="frame" x="20" y="360" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Ec8-NG-Nd4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -740,16 +743,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.69999999999999996" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RSh-0u-KTP">
+                                <rect key="frame" x="18" y="409" width="200" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="vhg-H3-nfX"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="dampingSliderChanged:" destination="0JT-SL-9UY" eventType="valueChanged" id="PID-5J-Sg4"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damping" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2j-k6-Jv2">
+                                <rect key="frame" x="20" y="447" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fas-pV-qa3">
+                                <rect key="frame" x="98" y="447" width="118" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="IR1-x1-bac"/>
+                                    <constraint firstAttribute="height" constant="21" id="MYF-dZ-mZ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dNZ-pB-RVl" firstAttribute="top" secondItem="stJ-SV-xjo" secondAttribute="bottom" constant="8" id="1bG-Un-hz1"/>
                             <constraint firstItem="JEx-Vm-bHY" firstAttribute="top" secondItem="1YP-wT-6nE" secondAttribute="bottom" constant="39" id="3Mf-JO-is7"/>
                             <constraint firstItem="stJ-SV-xjo" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="3cr-aO-RKK"/>
+                            <constraint firstItem="RSh-0u-KTP" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="5AA-Jc-yuk"/>
                             <constraint firstItem="dgJ-xB-Ywy" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="5MB-xP-Rdm"/>
+                            <constraint firstItem="RhO-tA-wic" firstAttribute="top" secondItem="dNZ-pB-RVl" secondAttribute="bottom" constant="28" id="996-b9-E0K"/>
                             <constraint firstItem="eVK-hJ-RCT" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="DYb-sM-FN5"/>
+                            <constraint firstItem="RSh-0u-KTP" firstAttribute="top" secondItem="BbR-ul-68y" secondAttribute="bottom" constant="28" id="HCp-bh-NvV"/>
+                            <constraint firstItem="BbR-ul-68y" firstAttribute="top" secondItem="RhO-tA-wic" secondAttribute="bottom" constant="8" id="Odf-Uq-EcG"/>
+                            <constraint firstItem="BbR-ul-68y" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="P8B-ZK-gvd"/>
+                            <constraint firstItem="E2j-k6-Jv2" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="U2e-hI-yCN"/>
+                            <constraint firstItem="RhO-tA-wic" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="Xj8-Dk-7Sv"/>
+                            <constraint firstItem="fas-pV-qa3" firstAttribute="leading" secondItem="E2j-k6-Jv2" secondAttribute="trailing" constant="8" id="YmD-gW-OVt"/>
                             <constraint firstItem="eVK-hJ-RCT" firstAttribute="top" secondItem="JEx-Vm-bHY" secondAttribute="bottom" constant="8" id="b9c-vY-GqC"/>
                             <constraint firstItem="dgJ-xB-Ywy" firstAttribute="top" secondItem="eVK-hJ-RCT" secondAttribute="bottom" constant="8" id="eay-zL-S4l"/>
+                            <constraint firstItem="fas-pV-qa3" firstAttribute="top" secondItem="RSh-0u-KTP" secondAttribute="bottom" constant="8" id="f85-8M-q4k"/>
                             <constraint firstItem="JEx-Vm-bHY" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="hLH-sE-8wk"/>
                             <constraint firstItem="CPg-L2-ifq" firstAttribute="top" secondItem="eVK-hJ-RCT" secondAttribute="bottom" constant="8" id="ht5-1a-ILj"/>
                             <constraint firstItem="Slr-WR-Gn5" firstAttribute="top" secondItem="stJ-SV-xjo" secondAttribute="bottom" constant="8" id="i8x-cG-D00"/>
@@ -757,12 +795,15 @@
                             <constraint firstItem="stJ-SV-xjo" firstAttribute="top" secondItem="dgJ-xB-Ywy" secondAttribute="bottom" constant="8" id="q3X-6X-ElL"/>
                             <constraint firstItem="Slr-WR-Gn5" firstAttribute="leading" secondItem="dNZ-pB-RVl" secondAttribute="trailing" constant="8" id="x2k-xG-ogI"/>
                             <constraint firstItem="dNZ-pB-RVl" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="ysC-8t-bj8"/>
+                            <constraint firstItem="E2j-k6-Jv2" firstAttribute="top" secondItem="RSh-0u-KTP" secondAttribute="bottom" constant="8" id="zK0-sU-xy6"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Animations 2" id="sPo-BD-z3P"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="dampingSlider" destination="RSh-0u-KTP" id="NNw-Mr-0tB"/>
+                        <outlet property="dampingValueLabel" destination="fas-pV-qa3" id="sn7-1H-vhG"/>
                         <outlet property="distanceLabel" destination="Slr-WR-Gn5" id="SyR-5P-cUk"/>
                         <outlet property="distanceSlider" destination="stJ-SV-xjo" id="kmx-wT-lux"/>
                         <outlet property="initialSpringVelocityStepper" destination="RhO-tA-wic" id="ECp-as-utY"/>
