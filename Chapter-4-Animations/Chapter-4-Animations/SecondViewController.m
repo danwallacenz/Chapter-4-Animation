@@ -28,15 +28,29 @@
 @property (weak, nonatomic) IBOutlet UIButton *jumpBackAndGoOrangeButton;
 
 @property (strong, nonatomic) IBOutlet UIView *purpleAutoReversingView;
-
+@property (weak, nonatomic) IBOutlet UIButton *runAutoReversingButton;
+@property (weak, nonatomic) IBOutlet UIStepper *repetitionStepper;
+@property (weak, nonatomic) IBOutlet UILabel *repetitionStepperValueLabel;
 
 @end
 
 @implementation SecondViewController
 
 #pragma mark - Auto Reverse
+- (IBAction)repetitionStepperChanged:(UIStepper *)sender
+{
+    self.repetitionStepperValueLabel.text = [NSString stringWithFormat:@"repeat %0.f", sender.value + 1];
+}
 
 - (IBAction)purpleAutoReversingRunButtonPressed:(UIButton *)sender
+{
+    [self animate: self.repetitionStepper.value];
+    
+    sender.enabled = NO;
+}
+
+
+-(void) animate: (int) count
 {
     // save this to restore original position later
     CGPoint originalCenter = self.purpleAutoReversingView.center;
@@ -48,7 +62,13 @@
         self.purpleAutoReversingView.center = center;
     } completion:^(BOOL finished) {
         self.purpleAutoReversingView.center = originalCenter;
+        if(count){
+            [self animate: count - 1];
+        }else{
+            self.runAutoReversingButton.enabled = YES;
+        }
     }];
+    
 }
 
 #pragma mark - performWithoutAnimation:
