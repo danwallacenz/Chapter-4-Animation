@@ -46,9 +46,44 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelCancellableAnimationButton;
 @property CGPoint initialCenter;
 
+
+@property (strong, nonatomic) IBOutlet UIView *redRectangle;
+@property (weak, nonatomic) IBOutlet UIButton *redRectangleRunButton;
+@property (weak, nonatomic) IBOutlet UIButton *redRectangleCancelButton;
+@property CGPoint redRectInitialCenter;
+
 @end
 
 @implementation SecondViewController
+
+#pragma mark - cancel repeating animations
+
+- (IBAction)redRectangleRunButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.redRectangleCancelButton.enabled = YES;
+    
+    CGPoint center = self.redRectangle.center;
+    self.redRectInitialCenter = center;
+    center.x += 100;
+    NSUInteger opts = UIViewAnimationOptionAutoreverse |UIViewAnimationOptionRepeat;
+    [UIView animateWithDuration:1 delay:0 options:opts animations:^{
+        self.redRectangle.center = center;
+    } completion:nil];
+}
+
+- (IBAction)redRectangleCancelButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.redRectangleRunButton.enabled = YES;
+    
+    NSUInteger opts =  UIViewAnimationOptionBeginFromCurrentState;
+    [UIView animateWithDuration: 0.2 delay: 0 options: opts
+                     animations:^{
+                         self.redRectangle.center = self.redRectInitialCenter;
+                     } completion:nil];
+    
+}
 
 #pragma mark - cancelling animations
 
@@ -59,7 +94,6 @@
 
     CGPoint center = self.cyanRectangle.center;
     self.initialCenter = center;
-    
     center.x += 100;
     [UIView animateWithDuration: 2
                      animations: ^{
