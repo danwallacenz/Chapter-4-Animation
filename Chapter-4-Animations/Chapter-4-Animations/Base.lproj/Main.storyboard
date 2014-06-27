@@ -794,6 +794,16 @@
                                     <action selector="runKeyframeButtonPressed:" destination="0JT-SL-9UY" eventType="touchUpInside" id="LV1-Hu-md0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqV-j8-NNG">
+                                <rect key="frame" x="570" y="163" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetKeyframeButtonPressed:" destination="0JT-SL-9UY" eventType="touchUpInside" id="SeJ-eS-NW3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -840,7 +850,9 @@
                         <outlet property="initialSpringVelocityStepperValueLabel" destination="mwH-dX-P5v" id="af9-zA-716"/>
                         <outlet property="leftButton" destination="dgJ-xB-Ywy" id="raG-YY-tAc"/>
                         <outlet property="orangeRectangle" destination="eVK-hJ-RCT" id="pVk-Sc-NLf"/>
+                        <outlet property="resetKeyframeButton" destination="jqV-j8-NNG" id="fuU-oz-RUo"/>
                         <outlet property="rightButton" destination="CPg-L2-ifq" id="6Ij-HU-lGs"/>
+                        <outlet property="runKeyframeButton" destination="Sfa-ow-yHK" id="YxE-pw-nJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ag-Pm-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>

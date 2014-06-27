@@ -22,7 +22,9 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *greenRectangle;
-
+@property (weak, nonatomic) IBOutlet UIButton *runKeyframeButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetKeyframeButton;
+@property CGPoint originalGreenRectCenter;
 
 @end
 
@@ -34,6 +36,7 @@
 {
     sender.enabled = NO;
     
+    self.originalGreenRectCenter = self.greenRectangle.center;
     __block CGPoint center = self.greenRectangle.center;
     [UIView animateKeyframesWithDuration:4 delay:0 options:0 animations:^{
         [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:.25 animations:^{
@@ -57,10 +60,16 @@
             self.greenRectangle.center = center;
         }];
     } completion:^(BOOL finished) {
-//        code
+        self.resetKeyframeButton.enabled = YES;
     }];
 }
 
+- (IBAction)resetKeyframeButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.greenRectangle.center =  self.originalGreenRectCenter;
+    self.runKeyframeButton.enabled = YES;
+}
 
 #pragma mark - Springing View Animation
 
@@ -116,6 +125,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.leftButton.enabled = NO;
+    self.resetKeyframeButton.enabled = NO;
 }
 
 
