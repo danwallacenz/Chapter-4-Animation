@@ -420,6 +420,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejs-jD-GB0">
+                                <rect key="frame" x="462" y="71" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UIAnimationOptionBeginFromCurrentState" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7T-bj-ycr">
+                                <rect key="frame" x="462" y="179" width="327" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iD-6O-XMf">
+                                <rect key="frame" x="462" y="208" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="runUIAnimationOptionBeginFromCurrentStateButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="czY-CK-FAo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -484,6 +505,7 @@
                         <outlet property="animateToTwoButton" destination="YRa-zx-Sff" id="tkd-dC-3BS"/>
                         <outlet property="animateUpToGreenButton" destination="ijG-af-kQX" id="yaB-rU-2dg"/>
                         <outlet property="animatetoYellowButton" destination="7cY-TB-fLc" id="Y4r-lq-XAB"/>
+                        <outlet property="brownRectangle" destination="ejs-jD-GB0" id="Uuz-Jg-DAg"/>
                         <outlet property="greenView" destination="Yib-Df-nlz" id="f3V-8d-A38"/>
                         <outlet property="jumpBackAndGoOrangeButton" destination="G4x-3z-apE" id="JkW-6B-Heq"/>
                         <outlet property="jumpUpAndGoRedButton" destination="ZzE-RV-HCz" id="JdU-xU-QS3"/>

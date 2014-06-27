@@ -32,9 +32,48 @@
 @property (weak, nonatomic) IBOutlet UIStepper *repetitionStepper;
 @property (weak, nonatomic) IBOutlet UILabel *repetitionStepperValueLabel;
 
+
+@property (weak, nonatomic) IBOutlet UIView *brownRectangle;
+@property BOOL reverse;
+
 @end
 
 @implementation SecondViewController
+
+#pragma mark - UIViewAnimationOptionBeginFromCurrentState
+
+- (IBAction)runUIAnimationOptionBeginFromCurrentStateButtonPressed:(id)sender
+{
+    [UIView animateWithDuration: 1 animations:^{
+        CGPoint center = self.brownRectangle.center;
+        
+        if(self.reverse){
+            center.x -= 100;
+        }else{
+            center.x += 100;
+        }
+        
+        self.brownRectangle.center = center;
+    }];
+    
+    // glides diagonally down to the right
+    NSUInteger opts = UIViewAnimationOptionBeginFromCurrentState;
+    
+    // jumps right then glides straight down
+//    NSUInteger opts = 0;
+    
+    [UIView animateWithDuration: 1 delay: 0 options: opts animations:^{
+        CGPoint center = self.brownRectangle.center;
+        if(self.reverse){
+            center.y -= 100;
+        }else{
+            center.y += 100;
+        }
+        self.brownRectangle.center = center;
+    } completion: ^(BOOL finished){
+        self.reverse = !self.reverse;
+    }];
+}
 
 #pragma mark - Auto Reverse
 - (IBAction)repetitionStepperChanged:(UIStepper *)sender
@@ -193,6 +232,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.jumpBackAndGoOrangeButton.enabled = NO;
+    self.reverse = NO;
 }
 
 - (void)didReceiveMemoryWarning
