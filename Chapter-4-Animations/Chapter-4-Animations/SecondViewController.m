@@ -23,9 +23,68 @@
 @property (weak, nonatomic) IBOutlet UIButton *animateToTwoButton;
 @property (weak, nonatomic) IBOutlet UIButton *animateToOneButton;
 
+@property (weak, nonatomic) IBOutlet UIView *orangeView;
+@property (weak, nonatomic) IBOutlet UIButton *jumpUpAndGoRedButton;
+@property (weak, nonatomic) IBOutlet UIButton *jumpBackAndGoOrangeButton;
+
+@property (strong, nonatomic) IBOutlet UIView *purpleAutoReversingView;
+
+
 @end
 
 @implementation SecondViewController
+
+#pragma mark - Auto Reverse
+
+- (IBAction)purpleAutoReversingRunButtonPressed:(UIButton *)sender
+{
+    // save this to restore original position later
+    CGPoint originalCenter = self.purpleAutoReversingView.center;
+    
+    NSUInteger opts = UIViewAnimationOptionAutoreverse;
+    [UIView animateWithDuration:1 delay:0 options:opts animations:^{
+        CGPoint center = self.purpleAutoReversingView.center;
+        center.x += 100;
+        self.purpleAutoReversingView.center = center;
+    } completion:^(BOOL finished) {
+        self.purpleAutoReversingView.center = originalCenter;
+    }];
+}
+
+#pragma mark - performWithoutAnimation:
+
+- (IBAction)jumpUpAndGoRedButtonPressed:(UIButton *)sender
+{
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        self.orangeView.backgroundColor = [UIColor redColor];
+        [UIView performWithoutAnimation:^{
+            CGPoint center = self.orangeView.center;
+            center.y -= 100;
+            self.orangeView.center = center;
+        }];
+    }];
+    
+    self.jumpBackAndGoOrangeButton.enabled = YES;
+    sender.enabled = NO;
+}
+
+- (IBAction)jumpBackAndGoOrangeButtonPressed:(UIButton *)sender
+{
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        self.orangeView.backgroundColor = [UIColor orangeColor];
+        [UIView performWithoutAnimation:^{
+            CGPoint center = self.orangeView.center;
+            center.y += 100;
+            self.orangeView.center = center;
+        }];
+    }];
+    
+    self.jumpUpAndGoRedButton.enabled = YES;
+    sender.enabled = NO;
+}
+
 
 #pragma mark - Dissolve one view into another
 
@@ -113,6 +172,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.jumpBackAndGoOrangeButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
