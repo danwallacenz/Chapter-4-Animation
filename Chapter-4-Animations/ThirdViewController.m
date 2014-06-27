@@ -10,40 +10,65 @@
 
 @interface ThirdViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *orangeRectangle;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (weak, nonatomic) IBOutlet UISlider *distanceSlider;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *initialSpringVelocityStepper;
+@property (weak, nonatomic) IBOutlet UILabel *initialSpringVelocityStepperValueLabel;
+
 @end
 
 @implementation ThirdViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Springing View Animation
+
+- (IBAction)initialSpringVelocityStepperChanged:(UIStepper *)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    self.initialSpringVelocityStepperValueLabel.text = [NSString stringWithFormat:@"%0.f", sender.value ];
+
 }
+
+- (IBAction)distanceSliderChanged:(UISlider *)sender
+{
+    self.distanceLabel.text = [NSString stringWithFormat:@"%0.f", sender.value];
+}
+
+
+- (IBAction)rightButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.leftButton.enabled = YES;
+    
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
+        CGPoint center = self.orangeRectangle.center;
+        center.x += self.distanceSlider.value;
+        self.orangeRectangle.center = center;
+    } completion:nil];
+}
+
+
+- (IBAction)leftButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.rightButton.enabled = YES;
+    
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity: self.initialSpringVelocityStepper.value options:0 animations:^{
+        CGPoint center = self.orangeRectangle.center;
+        center.x -= self.distanceSlider.value;
+        self.orangeRectangle.center = center;
+    } completion:nil];
+}
+
+#pragma mark -  UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.leftButton.enabled = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
