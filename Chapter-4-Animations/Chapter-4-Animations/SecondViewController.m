@@ -9,10 +9,33 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
+@property (strong, nonatomic) IBOutlet UIView *yellowView;
+@property (weak, nonatomic) IBOutlet UIButton *animateToRedButton;
+@property (weak, nonatomic) IBOutlet UIButton *animatetoYellowButton;
 
 @end
 
 @implementation SecondViewController
+
+- (IBAction)animateToRedButtonPressed:(UIButton *)sender
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        self.yellowView.backgroundColor = [UIColor redColor];
+    }];
+    
+    sender.enabled = NO;
+    self.animatetoYellowButton.enabled = YES;
+}
+
+- (IBAction)animateToYellowButtonPressed:(UIButton *)sender
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        self.yellowView.backgroundColor = [UIColor yellowColor];
+    }];
+    
+    sender.enabled = NO;
+    self.animateToRedButton.enabled = YES;
+}
 
 - (void)viewDidLoad
 {
