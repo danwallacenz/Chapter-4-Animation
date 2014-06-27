@@ -452,7 +452,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-CJ-rnb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-CJ-rnb">
                                 <rect key="frame" x="462" y="383" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Run">
@@ -460,6 +460,37 @@
                                 </state>
                                 <connections>
                                     <action selector="blackRectangleRunButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Tzl-4F-yij"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel Animations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whF-Fw-n8d">
+                                <rect key="frame" x="462" y="421" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftS-IL-S2P">
+                                <rect key="frame" x="462" y="450" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sB-s9-3wB">
+                                <rect key="frame" x="462" y="558" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="runCancellableAnimationButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="oid-hh-zzj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK9-Pr-Qih">
+                                <rect key="frame" x="500" y="558" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelCancellableAnimationButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ZbW-Ue-EhT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -472,10 +503,12 @@
                             <constraint firstItem="bMq-6O-lJ9" firstAttribute="trailing" secondItem="lQd-ol-qxy" secondAttribute="trailing" id="5Px-dO-3uz"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Yib-Df-nlz" secondAttribute="bottom" constant="440" id="6Ng-kE-C5E"/>
                             <constraint firstItem="jpE-HI-Uid" firstAttribute="trailing" secondItem="Yib-Df-nlz" secondAttribute="trailing" id="7Ox-RX-ptL"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="ftS-IL-S2P" secondAttribute="bottom" constant="169" id="99A-bT-cKX"/>
                             <constraint firstItem="GXP-nR-LUo" firstAttribute="leading" secondItem="jpE-HI-Uid" secondAttribute="leading" id="AMc-xu-qyk"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="jpE-HI-Uid" secondAttribute="bottom" constant="315" id="BpT-Bg-Yj3"/>
                             <constraint firstItem="xsu-sS-k2J" firstAttribute="leading" secondItem="hJh-ML-QXE" secondAttribute="leading" id="BxJ-wD-Xd4"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailing" id="C9p-N0-R4o"/>
+                            <constraint firstItem="ftS-IL-S2P" firstAttribute="leading" secondItem="whF-Fw-n8d" secondAttribute="leading" id="CZZ-44-lKK"/>
                             <constraint firstItem="9kD-sN-boW" firstAttribute="leading" secondItem="pRJ-uS-GVl" secondAttribute="trailing" constant="8" symbolic="YES" id="Da4-cx-xNK"/>
                             <constraint firstItem="7cY-TB-fLc" firstAttribute="top" secondItem="fZr-Gz-RSp" secondAttribute="bottom" constant="8" symbolic="YES" id="E22-AE-s2M"/>
                             <constraint firstItem="bMq-6O-lJ9" firstAttribute="leading" secondItem="9kD-sN-boW" secondAttribute="trailing" constant="8" symbolic="YES" id="EJV-tf-vLq"/>
@@ -491,18 +524,23 @@
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="xsu-sS-k2J" secondAttribute="bottom" constant="344" id="MZY-5x-reU"/>
                             <constraint firstItem="Puv-7j-eCk" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="48" id="Mqz-8b-TMC"/>
                             <constraint firstItem="9kD-sN-boW" firstAttribute="top" secondItem="36g-xZ-Jdw" secondAttribute="bottom" constant="8" symbolic="YES" id="Naa-Qt-o64"/>
+                            <constraint firstItem="ftS-IL-S2P" firstAttribute="trailing" secondItem="xsu-sS-k2J" secondAttribute="trailing" id="SHg-JC-E3J"/>
                             <constraint firstItem="GXP-nR-LUo" firstAttribute="bottom" secondItem="wYI-nN-FtS" secondAttribute="bottom" id="Sbd-Ft-z2U"/>
                             <constraint firstItem="GXP-nR-LUo" firstAttribute="trailing" secondItem="jpE-HI-Uid" secondAttribute="trailing" id="T66-9b-U5X"/>
                             <constraint firstItem="9kD-sN-boW" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="93" id="TG2-dX-a0r"/>
                             <constraint firstItem="GXP-nR-LUo" firstAttribute="bottom" secondItem="jpE-HI-Uid" secondAttribute="bottom" id="UlF-S0-IH6"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="bMq-6O-lJ9" secondAttribute="bottom" constant="8" id="V5x-Yt-SM4"/>
                             <constraint firstItem="hJh-ML-QXE" firstAttribute="leading" secondItem="w7T-bj-ycr" secondAttribute="leading" id="Via-4F-D0M"/>
+                            <constraint firstItem="whF-Fw-n8d" firstAttribute="leading" secondItem="xsu-sS-k2J" secondAttribute="leading" id="Y7W-St-4Tx"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ZQW-8Y-bT4"/>
                             <constraint firstItem="hJh-ML-QXE" firstAttribute="leading" secondItem="0iD-6O-XMf" secondAttribute="leading" id="a8K-Hw-ajw"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="XKk-CI-5iL" secondAttribute="bottom" constant="179" id="cbG-Gs-mkS"/>
+                            <constraint firstItem="ftS-IL-S2P" firstAttribute="top" secondItem="whF-Fw-n8d" secondAttribute="bottom" constant="8" symbolic="YES" id="cbr-BV-aak"/>
                             <constraint firstItem="ijG-af-kQX" firstAttribute="top" secondItem="lQd-ol-qxy" secondAttribute="bottom" constant="8" symbolic="YES" id="cs8-7z-93i"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="whF-Fw-n8d" secondAttribute="bottom" constant="277" id="dGr-dz-5aN"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="dYc-7R-70W"/>
                             <constraint firstItem="hJh-ML-QXE" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="462" id="dtM-G0-yLy"/>
+                            <constraint firstItem="whF-Fw-n8d" firstAttribute="leading" secondItem="eBg-CJ-rnb" secondAttribute="leading" id="dxp-dh-6Qn"/>
                             <constraint firstItem="ejs-jD-GB0" firstAttribute="trailing" secondItem="xsu-sS-k2J" secondAttribute="trailing" id="f2N-Uf-awy"/>
                             <constraint firstItem="hJh-ML-QXE" firstAttribute="top" secondItem="0iD-6O-XMf" secondAttribute="bottom" constant="8" symbolic="YES" id="fZo-oE-xYX"/>
                             <constraint firstItem="XKk-CI-5iL" firstAttribute="trailing" secondItem="jpE-HI-Uid" secondAttribute="trailing" id="gWW-ly-udH"/>
@@ -519,6 +557,7 @@
                             <constraint firstItem="7cY-TB-fLc" firstAttribute="leading" secondItem="Puv-7j-eCk" secondAttribute="trailing" constant="8" symbolic="YES" id="pL0-qF-UAc"/>
                             <constraint firstItem="GXP-nR-LUo" firstAttribute="top" secondItem="jpE-HI-Uid" secondAttribute="top" id="pLq-Su-qXW"/>
                             <constraint firstItem="jpE-HI-Uid" firstAttribute="leading" secondItem="Yib-Df-nlz" secondAttribute="leading" id="pu9-Ne-gWq"/>
+                            <constraint firstItem="whF-Fw-n8d" firstAttribute="top" secondItem="eBg-CJ-rnb" secondAttribute="bottom" constant="8" symbolic="YES" id="qTq-ao-10P"/>
                             <constraint firstItem="lQd-ol-qxy" firstAttribute="top" secondItem="7cY-TB-fLc" secondAttribute="bottom" constant="40" id="qi1-UW-SjO"/>
                             <constraint firstItem="YRa-zx-Sff" firstAttribute="leading" secondItem="GXP-nR-LUo" secondAttribute="trailing" constant="8" symbolic="YES" id="rAJ-SO-D1d"/>
                             <constraint firstItem="w7T-bj-ycr" firstAttribute="top" secondItem="ejs-jD-GB0" secondAttribute="bottom" constant="8" symbolic="YES" id="rCs-7p-gL8"/>
@@ -542,6 +581,8 @@
                         <outlet property="animatetoYellowButton" destination="7cY-TB-fLc" id="Y4r-lq-XAB"/>
                         <outlet property="blackRectangle" destination="xsu-sS-k2J" id="PdZ-KW-X9X"/>
                         <outlet property="brownRectangle" destination="ejs-jD-GB0" id="Uuz-Jg-DAg"/>
+                        <outlet property="cancelCancellableAnimationButton" destination="DK9-Pr-Qih" id="x8h-af-7RZ"/>
+                        <outlet property="cyanRectangle" destination="ftS-IL-S2P" id="qQ5-Ub-mEE"/>
                         <outlet property="greenView" destination="Yib-Df-nlz" id="f3V-8d-A38"/>
                         <outlet property="jumpBackAndGoOrangeButton" destination="G4x-3z-apE" id="JkW-6B-Heq"/>
                         <outlet property="jumpUpAndGoRedButton" destination="ZzE-RV-HCz" id="JdU-xU-QS3"/>
@@ -551,6 +592,7 @@
                         <outlet property="repetitionStepper" destination="9kD-sN-boW" id="H5e-YZ-ucS"/>
                         <outlet property="repetitionStepperValueLabel" destination="bMq-6O-lJ9" id="YTx-i1-klf"/>
                         <outlet property="runAutoReversingButton" destination="pRJ-uS-GVl" id="ZK7-TA-Y11"/>
+                        <outlet property="runCancellableAnimationButton" destination="7sB-s9-3wB" id="t9B-Zq-oDj"/>
                         <outlet property="twoView" destination="GXP-nR-LUo" id="9tL-xN-vf2"/>
                         <outlet property="yellowView" destination="Puv-7j-eCk" id="ckj-Xu-dSj"/>
                     </connections>

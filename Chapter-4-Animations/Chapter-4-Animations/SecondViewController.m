@@ -39,34 +39,54 @@
 
 @property (weak, nonatomic) IBOutlet UIView *blackRectangle;
 @property BOOL overrideInheritedDurationReversed;
+
+
+@property (weak, nonatomic) IBOutlet UIView *cyanRectangle;
+@property (weak, nonatomic) IBOutlet UIButton *runCancellableAnimationButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelCancellableAnimationButton;
+@property CGPoint initialCenter;
+
 @end
 
 @implementation SecondViewController
 
+#pragma mark - cancelling animations
+
+- (IBAction)runCancellableAnimationButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    self.cancelCancellableAnimationButton.enabled = YES;
+
+    CGPoint center = self.cyanRectangle.center;
+    self.initialCenter = center;
+    
+    center.x += 100;
+    [UIView animateWithDuration: 2
+                     animations: ^{
+                          self.cyanRectangle.center = center;
+                     }];
+}
+
+
+- (IBAction)cancelCancellableAnimationButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    
+    NSUInteger opts = UIViewAnimationOptionBeginFromCurrentState;
+    [UIView animateWithDuration: 0.1 delay: 0 options: opts animations:^{
+        CGPoint center = self.initialCenter;
+        center.x += 1; // a slight change
+        self.cyanRectangle.center = center;
+    } completion:^(BOOL finished) {
+        CGPoint center = self.initialCenter;
+        self.cyanRectangle.center = center;
+    }];
+    
+    self.runCancellableAnimationButton.enabled = YES;
+}
+
 #pragma mark - UIViewAnimationOptionOverrideInheritedDuration
 
-- (IBAction)xblackRectangleRunButtonPressed:(id)sender
-{
-
-//    [UIView animateWithDuration:2 animations:^{
-//        CGPoint center = self.blackRectangle.center;
-//        
-//        if(self.overrideInheritedDurationReversed){
-//            center.x -= 100;
-//        }else{
-//            center.x += 100;
-//        }
-//        self.blackRectangle.center = center;
-////        NSInteger opts = 0;
-//        NSInteger opts = UIViewAnimationOptionOverrideInheritedDuration;
-//        
-//        [UIView animateWithDuration:0.5 delay:0 options:opts animations:^{
-//            self.blackRectangle.backgroundColor = (self.overrideInheritedDurationReversed)?[UIColor blackColor]:[UIColor yellowColor];
-//        } completion: ^(BOOL finished){
-//            self.overrideInheritedDurationReversed = !self.overrideInheritedDurationReversed;
-//        }];
-//    }];
-}
 - (IBAction)blackRectangleRunButtonPressed:(UIButton *)sender
 {
     sender.enabled = NO;
