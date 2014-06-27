@@ -335,7 +335,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYI-nN-FtS">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYI-nN-FtS">
                                 <rect key="frame" x="128" y="374" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Animate to One">
@@ -394,7 +394,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="animateDownToPurpleButton" destination="lQd-ol-qxy" id="Vhr-ec-vAl"/>
+                        <outlet property="animateToOneButton" destination="wYI-nN-FtS" id="IzG-nC-5Qn"/>
                         <outlet property="animateToRedButton" destination="fZr-Gz-RSp" id="JzK-r4-W7k"/>
+                        <outlet property="animateToTwoButton" destination="YRa-zx-Sff" id="tkd-dC-3BS"/>
                         <outlet property="animateUpToGreenButton" destination="ijG-af-kQX" id="yaB-rU-2dg"/>
                         <outlet property="animatetoYellowButton" destination="7cY-TB-fLc" id="Y4r-lq-XAB"/>
                         <outlet property="greenView" destination="Yib-Df-nlz" id="f3V-8d-A38"/>

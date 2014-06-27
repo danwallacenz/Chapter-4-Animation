@@ -20,6 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *oneView;
 @property (weak, nonatomic) IBOutlet UIView *twoView;
+@property (weak, nonatomic) IBOutlet UIButton *animateToTwoButton;
+@property (weak, nonatomic) IBOutlet UIButton *animateToOneButton;
 
 @end
 
@@ -37,6 +39,9 @@
     } completion:^(BOOL finished) {
         self.oneView.hidden = YES;
     }];
+    sender.enabled = NO;
+    self.animateToOneButton.hidden = NO;
+    self.animateToOneButton.enabled = YES;
 }
 
 - (IBAction)animateToOneButtonPressed:(UIButton *)sender
@@ -49,6 +54,8 @@
     } completion:^(BOOL finished) {
         self.twoView.hidden = YES;
     }];
+    sender.enabled = NO;
+    self.animateToTwoButton.enabled = YES;
 }
 
 #pragma mark - Animate green down to purple rectangle
