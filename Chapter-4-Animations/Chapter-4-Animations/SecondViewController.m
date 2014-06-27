@@ -18,11 +18,40 @@
 @property (weak, nonatomic) IBOutlet UIButton *animateDownToPurpleButton;
 @property (weak, nonatomic) IBOutlet UIButton *animateUpToGreenButton;
 
+@property (weak, nonatomic) IBOutlet UIView *oneView;
+@property (weak, nonatomic) IBOutlet UIView *twoView;
+
 @end
 
 @implementation SecondViewController
 
-#pragma mark - Animate green rectangle
+#pragma mark - Dissolve one view into another
+
+- (IBAction)animateToTwoButtonPressed:(UIButton *)sender
+{
+    self.twoView.hidden = NO;
+    self.twoView.alpha = 0;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.oneView.alpha = 0;
+        self.twoView.alpha = 1;
+    } completion:^(BOOL finished) {
+        self.oneView.hidden = YES;
+    }];
+}
+
+- (IBAction)animateToOneButtonPressed:(UIButton *)sender
+{
+    self.oneView.hidden = NO;
+    self.oneView.alpha = 0;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.oneView.alpha = 1;
+        self.twoView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.twoView.hidden = YES;
+    }];
+}
+
+#pragma mark - Animate green down to purple rectangle
 
 - (IBAction)animateDownToPurpleButtonPressed:(UIButton *)sender
 {
