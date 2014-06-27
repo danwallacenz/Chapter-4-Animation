@@ -769,6 +769,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyframe View Animation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwW-zy-Wze">
+                                <rect key="frame" x="414" y="60" width="196" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Mv-5Y-PQ8">
+                                <rect key="frame" x="462" y="90" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.090196080505847931" green="0.42352944612503052" blue="0.23137256503105164" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="fhu-08-Lx1"/>
+                                    <constraint firstAttribute="width" constant="100" id="ov8-fI-rcd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfa-ow-yHK">
+                                <rect key="frame" x="570" y="125" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="runKeyframeButtonPressed:" destination="0JT-SL-9UY" eventType="touchUpInside" id="LV1-Hu-md0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -782,6 +807,7 @@
                             <constraint firstItem="RSh-0u-KTP" firstAttribute="top" secondItem="BbR-ul-68y" secondAttribute="bottom" constant="28" id="HCp-bh-NvV"/>
                             <constraint firstItem="BbR-ul-68y" firstAttribute="top" secondItem="RhO-tA-wic" secondAttribute="bottom" constant="8" id="Odf-Uq-EcG"/>
                             <constraint firstItem="BbR-ul-68y" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="P8B-ZK-gvd"/>
+                            <constraint firstAttribute="centerX" secondItem="9Mv-5Y-PQ8" secondAttribute="centerX" id="Qvj-HK-eHt"/>
                             <constraint firstItem="E2j-k6-Jv2" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="U2e-hI-yCN"/>
                             <constraint firstItem="RhO-tA-wic" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="Xj8-Dk-7Sv"/>
                             <constraint firstItem="fas-pV-qa3" firstAttribute="leading" secondItem="E2j-k6-Jv2" secondAttribute="trailing" constant="8" id="YmD-gW-OVt"/>
@@ -789,9 +815,12 @@
                             <constraint firstItem="dgJ-xB-Ywy" firstAttribute="top" secondItem="eVK-hJ-RCT" secondAttribute="bottom" constant="8" id="eay-zL-S4l"/>
                             <constraint firstItem="fas-pV-qa3" firstAttribute="top" secondItem="RSh-0u-KTP" secondAttribute="bottom" constant="8" id="f85-8M-q4k"/>
                             <constraint firstItem="JEx-Vm-bHY" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="hLH-sE-8wk"/>
+                            <constraint firstAttribute="centerX" secondItem="gwW-zy-Wze" secondAttribute="centerX" id="hc3-am-ALR"/>
                             <constraint firstItem="CPg-L2-ifq" firstAttribute="top" secondItem="eVK-hJ-RCT" secondAttribute="bottom" constant="8" id="ht5-1a-ILj"/>
                             <constraint firstItem="Slr-WR-Gn5" firstAttribute="top" secondItem="stJ-SV-xjo" secondAttribute="bottom" constant="8" id="i8x-cG-D00"/>
                             <constraint firstItem="CPg-L2-ifq" firstAttribute="leading" secondItem="dgJ-xB-Ywy" secondAttribute="trailing" constant="33" id="jGk-ay-7dL"/>
+                            <constraint firstItem="9Mv-5Y-PQ8" firstAttribute="top" secondItem="gwW-zy-Wze" secondAttribute="bottom" constant="9" id="lvU-Ar-K8O"/>
+                            <constraint firstItem="gwW-zy-Wze" firstAttribute="top" secondItem="1YP-wT-6nE" secondAttribute="bottom" constant="40" id="p1n-kf-dUX"/>
                             <constraint firstItem="stJ-SV-xjo" firstAttribute="top" secondItem="dgJ-xB-Ywy" secondAttribute="bottom" constant="8" id="q3X-6X-ElL"/>
                             <constraint firstItem="Slr-WR-Gn5" firstAttribute="leading" secondItem="dNZ-pB-RVl" secondAttribute="trailing" constant="8" id="x2k-xG-ogI"/>
                             <constraint firstItem="dNZ-pB-RVl" firstAttribute="leading" secondItem="Acq-kP-TbJ" secondAttribute="leading" constant="20" id="ysC-8t-bj8"/>
@@ -806,6 +835,7 @@
                         <outlet property="dampingValueLabel" destination="fas-pV-qa3" id="sn7-1H-vhG"/>
                         <outlet property="distanceLabel" destination="Slr-WR-Gn5" id="SyR-5P-cUk"/>
                         <outlet property="distanceSlider" destination="stJ-SV-xjo" id="kmx-wT-lux"/>
+                        <outlet property="greenRectangle" destination="9Mv-5Y-PQ8" id="3VU-xD-6eN"/>
                         <outlet property="initialSpringVelocityStepper" destination="RhO-tA-wic" id="ECp-as-utY"/>
                         <outlet property="initialSpringVelocityStepperValueLabel" destination="mwH-dX-P5v" id="af9-zA-716"/>
                         <outlet property="leftButton" destination="dgJ-xB-Ywy" id="raG-YY-tAc"/>
