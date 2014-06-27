@@ -284,26 +284,62 @@
                                     <action selector="animateToYellowButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ALe-PG-Ave"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yib-Df-nlz">
+                                <rect key="frame" x="20" y="179" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-ol-qxy">
+                                <rect key="frame" x="128" y="211" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Animate down to purple">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="animateDownToPurpleButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="axo-qC-ceM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijG-af-kQX">
+                                <rect key="frame" x="128" y="249" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Animate up to green">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="animateUpToGreenButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="RYM-Jf-RqW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Yib-Df-nlz" firstAttribute="leading" secondItem="Puv-7j-eCk" secondAttribute="leading" id="47i-b4-g2A"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Yib-Df-nlz" secondAttribute="bottom" constant="440" id="6Ng-kE-C5E"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailing" id="C9p-N0-R4o"/>
                             <constraint firstItem="7cY-TB-fLc" firstAttribute="top" secondItem="fZr-Gz-RSp" secondAttribute="bottom" constant="8" symbolic="YES" id="E22-AE-s2M"/>
                             <constraint firstItem="fZr-Gz-RSp" firstAttribute="leading" secondItem="Puv-7j-eCk" secondAttribute="trailing" constant="8" symbolic="YES" id="Es2-hj-Ee4"/>
+                            <constraint firstItem="Yib-Df-nlz" firstAttribute="trailing" secondItem="Puv-7j-eCk" secondAttribute="trailing" id="FfD-Sh-rDf"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="7cY-TB-fLc" secondAttribute="bottom" constant="548" id="JGg-Et-qYY"/>
                             <constraint firstItem="Puv-7j-eCk" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="Jyv-cn-Wr6"/>
+                            <constraint firstItem="Yib-Df-nlz" firstAttribute="top" secondItem="Puv-7j-eCk" secondAttribute="bottom" constant="11" id="K8C-2g-tih"/>
                             <constraint firstItem="Puv-7j-eCk" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="48" id="Mqz-8b-TMC"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="ZQW-8Y-bT4"/>
+                            <constraint firstItem="ijG-af-kQX" firstAttribute="top" secondItem="lQd-ol-qxy" secondAttribute="bottom" constant="8" symbolic="YES" id="cs8-7z-93i"/>
                             <constraint firstItem="ej5-n5-O85" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="dYc-7R-70W"/>
                             <constraint firstItem="7cY-TB-fLc" firstAttribute="leading" secondItem="Puv-7j-eCk" secondAttribute="trailing" constant="8" symbolic="YES" id="pL0-qF-UAc"/>
+                            <constraint firstItem="lQd-ol-qxy" firstAttribute="top" secondItem="7cY-TB-fLc" secondAttribute="bottom" constant="40" id="qi1-UW-SjO"/>
+                            <constraint firstItem="lQd-ol-qxy" firstAttribute="leading" secondItem="Yib-Df-nlz" secondAttribute="trailing" constant="8" symbolic="YES" id="rnR-b1-8xc"/>
+                            <constraint firstItem="ijG-af-kQX" firstAttribute="leading" secondItem="Yib-Df-nlz" secondAttribute="trailing" constant="8" symbolic="YES" id="tJd-q9-0ix"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Animations" image="second" id="cPa-gy-q4n"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="animateDownToPurpleButton" destination="lQd-ol-qxy" id="Vhr-ec-vAl"/>
                         <outlet property="animateToRedButton" destination="fZr-Gz-RSp" id="JzK-r4-W7k"/>
+                        <outlet property="animateUpToGreenButton" destination="ijG-af-kQX" id="yaB-rU-2dg"/>
                         <outlet property="animatetoYellowButton" destination="7cY-TB-fLc" id="Y4r-lq-XAB"/>
+                        <outlet property="greenView" destination="Yib-Df-nlz" id="f3V-8d-A38"/>
                         <outlet property="yellowView" destination="Puv-7j-eCk" id="ckj-Xu-dSj"/>
                     </connections>
                 </viewController>

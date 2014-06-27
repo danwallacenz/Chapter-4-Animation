@@ -9,13 +9,49 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
+
 @property (strong, nonatomic) IBOutlet UIView *yellowView;
 @property (weak, nonatomic) IBOutlet UIButton *animateToRedButton;
 @property (weak, nonatomic) IBOutlet UIButton *animatetoYellowButton;
 
+@property (weak, nonatomic) IBOutlet UIView *greenView;
+@property (weak, nonatomic) IBOutlet UIButton *animateDownToPurpleButton;
+@property (weak, nonatomic) IBOutlet UIButton *animateUpToGreenButton;
+
 @end
 
 @implementation SecondViewController
+
+#pragma mark - Animate green rectangle
+
+- (IBAction)animateDownToPurpleButtonPressed:(UIButton *)sender
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        self.greenView.backgroundColor = [UIColor purpleColor];
+        CGPoint center = self.greenView.center;
+        center.y += 100;
+        self.greenView.center = center;
+    }];
+    
+    sender.enabled = NO;
+    self.animateUpToGreenButton.enabled = YES;
+}
+
+- (IBAction)animateUpToGreenButtonPressed:(UIButton *)sender
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        self.greenView.backgroundColor = [UIColor greenColor];
+        CGPoint center = self.greenView.center;
+        center.y -= 100;
+        self.greenView.center = center;
+    }];
+    
+    sender.enabled = NO;
+    self.animateDownToPurpleButton.enabled = YES;
+}
+
+
+#pragma mark - Animate yellow rectangle
 
 - (IBAction)animateToRedButtonPressed:(UIButton *)sender
 {
