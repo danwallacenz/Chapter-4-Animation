@@ -36,9 +36,61 @@
 @property (weak, nonatomic) IBOutlet UIView *brownRectangle;
 @property BOOL reverse;
 
+
+@property (weak, nonatomic) IBOutlet UIView *blackRectangle;
+@property BOOL overrideInheritedDurationReversed;
 @end
 
 @implementation SecondViewController
+
+#pragma mark - UIViewAnimationOptionOverrideInheritedDuration
+
+- (IBAction)xblackRectangleRunButtonPressed:(id)sender
+{
+
+//    [UIView animateWithDuration:2 animations:^{
+//        CGPoint center = self.blackRectangle.center;
+//        
+//        if(self.overrideInheritedDurationReversed){
+//            center.x -= 100;
+//        }else{
+//            center.x += 100;
+//        }
+//        self.blackRectangle.center = center;
+////        NSInteger opts = 0;
+//        NSInteger opts = UIViewAnimationOptionOverrideInheritedDuration;
+//        
+//        [UIView animateWithDuration:0.5 delay:0 options:opts animations:^{
+//            self.blackRectangle.backgroundColor = (self.overrideInheritedDurationReversed)?[UIColor blackColor]:[UIColor yellowColor];
+//        } completion: ^(BOOL finished){
+//            self.overrideInheritedDurationReversed = !self.overrideInheritedDurationReversed;
+//        }];
+//    }];
+}
+- (IBAction)blackRectangleRunButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    
+    [UIView animateWithDuration:2 animations:^{
+        CGPoint center = self.blackRectangle.center;
+        
+        if(self.overrideInheritedDurationReversed){
+            center.x -= 100;
+        }else{
+            center.x += 100;
+        }
+        self.blackRectangle.center = center;
+        //        NSInteger opts = 0;
+        NSInteger opts = UIViewAnimationOptionOverrideInheritedDuration;
+        
+        [UIView animateWithDuration:0.5 delay:0 options:opts animations:^{
+            self.blackRectangle.backgroundColor = (self.overrideInheritedDurationReversed)?[UIColor blackColor]:[UIColor yellowColor];
+        } completion: ^(BOOL finished){
+            self.overrideInheritedDurationReversed = !self.overrideInheritedDurationReversed;
+            sender.enabled = YES;
+        }];
+    }];
+}
 
 #pragma mark - UIViewAnimationOptionBeginFromCurrentState
 
@@ -233,6 +285,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.jumpBackAndGoOrangeButton.enabled = NO;
     self.reverse = NO;
+    self.overrideInheritedDurationReversed = NO;
 }
 
 - (void)didReceiveMemoryWarning
