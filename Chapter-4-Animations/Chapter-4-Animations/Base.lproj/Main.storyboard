@@ -804,6 +804,23 @@
                                     <action selector="resetKeyframeButtonPressed:" destination="0JT-SL-9UY" eventType="touchUpInside" id="SeJ-eS-NW3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UIViewKeyframeAnimationOptionCalculationMode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oW2-Xm-HYG">
+                                <rect key="frame" x="462" y="198" width="385" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Req-jc-Fe3">
+                                <rect key="frame" x="462" y="227" width="385" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Linear"/>
+                                    <segment title="Discrete"/>
+                                    <segment title="Paced"/>
+                                    <segment title="Cubic"/>
+                                    <segment title="CubicPaced"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -853,6 +870,7 @@
                         <outlet property="resetKeyframeButton" destination="jqV-j8-NNG" id="fuU-oz-RUo"/>
                         <outlet property="rightButton" destination="CPg-L2-ifq" id="6Ij-HU-lGs"/>
                         <outlet property="runKeyframeButton" destination="Sfa-ow-yHK" id="YxE-pw-nJS"/>
+                        <outlet property="uiViewKeyframeAnimationOptionCalculationModeSegmentedControl" destination="Req-jc-Fe3" id="ey2-tU-YEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ag-Pm-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>

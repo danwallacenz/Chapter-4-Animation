@@ -26,19 +26,55 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetKeyframeButton;
 @property CGPoint originalGreenRectCenter;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *uiViewKeyframeAnimationOptionCalculationModeSegmentedControl;
 @end
 
 @implementation ThirdViewController
 
 
 #pragma mark - Keyframe Animation
+
+/*
+ UIViewKeyframeAnimationOptionCalculationModeLinear     = 0 << 9,
+ UIViewKeyframeAnimationOptionCalculationModeDiscrete   = 1 << 9,
+ UIViewKeyframeAnimationOptionCalculationModePaced      = 2 << 9,
+ UIViewKeyframeAnimationOptionCalculationModeCubic      = 3 << 9,
+ UIViewKeyframeAnimationOptionCalculationModeCubicPaced = 4 << 9
+*/
+
+
 - (IBAction)runKeyframeButtonPressed:(UIButton *)sender
 {
     sender.enabled = NO;
     
     self.originalGreenRectCenter = self.greenRectangle.center;
     __block CGPoint center = self.greenRectangle.center;
-    [UIView animateKeyframesWithDuration:4 delay:0 options:0 animations:^{
+    
+    NSUInteger opts;
+    
+    switch (self.uiViewKeyframeAnimationOptionCalculationModeSegmentedControl.selectedSegmentIndex) {
+        case 0:
+            opts = UIViewKeyframeAnimationOptionCalculationModeLinear;
+            break;
+        case 1:
+            opts = UIViewKeyframeAnimationOptionCalculationModeDiscrete;
+            break;
+        case 2:
+            opts = UIViewKeyframeAnimationOptionCalculationModePaced;
+            break;
+        case 3:
+            opts = UIViewKeyframeAnimationOptionCalculationModeCubic;
+            break;
+        case 4:
+            opts = UIViewKeyframeAnimationOptionCalculationModeCubicPaced;
+            break;
+        default:
+            break;
+    }
+    
+    
+    [UIView animateKeyframesWithDuration: 4 delay: 0 options: opts animations:^{
+        
         [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:.25 animations:^{
             center.x += 100;
             center.y += 50;
