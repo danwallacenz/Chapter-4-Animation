@@ -30,6 +30,8 @@
 
 @implementation FirstViewController
 
+#pragma mark - flash mars
+
 - (IBAction)durationStepperChanged:(UIStepper *)sender
 {
     self.durationLabel.text = [NSString stringWithFormat:@"%0.f ms", sender.value ];
@@ -51,6 +53,25 @@
     [self.flashingImageView stopAnimating];
 }
 
+-(void)flashMars
+{
+    UIImage *mars = [UIImage imageNamed: @"Mars"];
+    UIGraphicsBeginImageContextWithOptions(mars.size, NO, 0);
+    UIImage *empty = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSArray *animationImages = @[mars, empty];
+    self.flashingImageView = [[UIImageView alloc] initWithImage: empty];
+    CGRect imageViewFrame = self.flashingImageView.frame;
+    imageViewFrame.origin = CGPointMake(10, 10);
+    self.flashingImageView.frame =  imageViewFrame;
+    [self.animationImagesView addSubview: self.flashingImageView];
+    self.flashingImageView.animationImages = animationImages;
+    self.flashingImageView.animationDuration = self.durationStepper.value/ 1000.0;
+    self.flashingImageView.animationRepeatCount = self.repeatStepper.value;
+    [self.flashingImageView startAnimating];
+}
+
+#pragma mark - animated button with red circle
 
 - (IBAction)animatedButtonTapped:(UIButton *)sender
 {
@@ -80,24 +101,19 @@
     [self.animatedButton setImage:animatedImage forState:UIControlStateNormal];
 }
 
--(void)flashMars
+#pragma mark - PacMan
+
+- (IBAction)pacmanStartPressed:(UIButton *)sender
 {
-    UIImage *mars = [UIImage imageNamed: @"Mars"];
-    UIGraphicsBeginImageContextWithOptions(mars.size, NO, 0);
-    UIImage *empty = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSArray *animationImages = @[mars, empty];
-    self.flashingImageView = [[UIImageView alloc] initWithImage: empty];
-    CGRect imageViewFrame = self.flashingImageView.frame;
-    imageViewFrame.origin = CGPointMake(10, 10);
-    self.flashingImageView.frame =  imageViewFrame;
-    [self.animationImagesView addSubview: self.flashingImageView];
-    self.flashingImageView.animationImages = animationImages;
-    self.flashingImageView.animationDuration = self.durationStepper.value/ 1000.0;
-    self.flashingImageView.animationRepeatCount = self.repeatStepper.value;
-    [self.flashingImageView startAnimating];
+    self.pacmanImageView.image = [UIImage animatedImageNamed:@"pac" duration:0.5];
 }
 
+- (IBAction)pacmanStopPressed:(id)sender
+{
+    self.pacmanImageView.image = nil;
+}
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
@@ -109,7 +125,7 @@
     
     self.buttonIsAnimating = NO;
     
-    self.pacmanImageView.image = [UIImage animatedImageNamed:@"pac" duration:0.5];
+//    self.pacmanImageView.image = [UIImage animatedImageNamed:@"pac" duration:0.5];
     
 }
 @end
