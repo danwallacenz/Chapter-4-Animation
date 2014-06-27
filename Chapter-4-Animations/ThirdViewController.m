@@ -27,6 +27,9 @@
 @property CGPoint originalGreenRectCenter;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *uiViewKeyframeAnimationOptionCalculationModeSegmentedControl;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *uiViewAnimationCurveSegmentedControl;
+
 @end
 
 @implementation ThirdViewController
@@ -42,6 +45,14 @@
  UIViewKeyframeAnimationOptionCalculationModeCubicPaced = 4 << 9
 */
 
+/*
+ typedef enum {
+ UIViewAnimationCurveEaseInOut,
+ UIViewAnimationCurveEaseIn,
+ UIViewAnimationCurveEaseOut,
+ UIViewAnimationCurveLinear
+ } UIViewAnimationCurve;
+ */
 
 - (IBAction)runKeyframeButtonPressed:(UIButton *)sender
 {
@@ -72,8 +83,28 @@
             break;
     }
     
+    NSUInteger uiViewAnimationCurveOption;
+    switch (self.uiViewAnimationCurveSegmentedControl.selectedSegmentIndex){
+        case 0:
+            uiViewAnimationCurveOption = UIViewAnimationCurveEaseInOut;
+            break;
+        case 1:
+            uiViewAnimationCurveOption = UIViewAnimationCurveEaseIn;
+            break;
+        case 2:
+            uiViewAnimationCurveOption = UIViewAnimationCurveEaseOut;
+            break;
+        case 3:
+            uiViewAnimationCurveOption = UIViewAnimationCurveLinear;
+            break;
+        default:
+            break;
+    }
+    opts = opts | uiViewAnimationCurveOption;
     
     [UIView animateKeyframesWithDuration: 4 delay: 0 options: opts animations:^{
+        
+        self.greenRectangle.alpha = 0;
         
         [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:.25 animations:^{
             center.x += 100;
@@ -105,6 +136,7 @@
     sender.enabled = NO;
     self.greenRectangle.center =  self.originalGreenRectCenter;
     self.runKeyframeButton.enabled = YES;
+    self.greenRectangle.alpha = 1;
 }
 
 #pragma mark - Springing View Animation
