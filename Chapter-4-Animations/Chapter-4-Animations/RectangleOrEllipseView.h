@@ -10,6 +10,4 @@
 
 @interface RectangleOrEllipseView : UIView
 
--(void) flip;
-
 @end

@@ -27,24 +27,6 @@
     return self;
 }
 
--(void) flip
-{
-    self.reverse = !self.reverse;
-    [UIView transitionWithView:self duration:1 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        [self setNeedsDisplay];
-    } completion:nil];
-}
-
-/*
- UIViewAnimationOptionTransitionFlipFromLeft    = 1 << 20,
- UIViewAnimationOptionTransitionFlipFromRight   = 2 << 20,
- UIViewAnimationOptionTransitionCurlUp          = 3 << 20,
- UIViewAnimationOptionTransitionCurlDown        = 4 << 20,
- UIViewAnimationOptionTransitionCrossDissolve   = 5 << 20,
- UIViewAnimationOptionTransitionFlipFromTop     = 6 << 20,
- UIViewAnimationOptionTransitionFlipFromBottom  = 7 << 20,
-*/
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -55,13 +37,13 @@
     CGContextSetStrokeColorWithColor(con, [self randomColor].CGColor);
     CGContextSetFillColorWithColor(con, [self randomColor].CGColor);
     if(self.reverse){
-       
         CGContextFillEllipseInRect(con, frame);
-         CGContextStrokeEllipseInRect(con, frame);
+        CGContextStrokeEllipseInRect(con, frame);
     }else{
         CGContextFillRect(con, frame);
         CGContextStrokeRect(con, frame);
     }
+    self.reverse = !self.reverse;
 }
 
 -(UIColor *)randomColor

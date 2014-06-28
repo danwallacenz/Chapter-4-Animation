@@ -978,6 +978,26 @@
                                     <action selector="flipRectangleOrEllipseButtonPressed:" destination="h1d-hC-60A" eventType="touchUpInside" id="wM6-Sw-fu4"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-WP-bqh">
+                                <rect key="frame" x="20" y="164" width="820" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="FlipFromLeft"/>
+                                    <segment title="FlipFromRight"/>
+                                    <segment title="CurlUp"/>
+                                    <segment title="CurlDown"/>
+                                    <segment title="CrossDissolve"/>
+                                    <segment title="FlipFromTop"/>
+                                    <segment title="FlipFromBottom"/>
+                                    <segment title="None"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UIViewAnimationOptionTransitions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57D-FU-A5f">
+                                <rect key="frame" x="20" y="135" width="264" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -989,6 +1009,7 @@
                     <tabBarItem key="tabBarItem" title="Transitions" id="Hb6-BH-Qfn"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="UIViewAnimationOptionTransitionSegmentedControl" destination="2gP-WP-bqh" id="k1J-9H-BND"/>
                         <outlet property="flipImageView" destination="iBB-dm-Kmk" id="dSw-1L-N27"/>
                     </connections>
                 </viewController>
