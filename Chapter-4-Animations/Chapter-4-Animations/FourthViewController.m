@@ -12,13 +12,16 @@
 @interface FourthViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *flipImageView;
 @property BOOL flipped;
-@property (strong, nonatomic) RectangleOrEllipseView *rectangleOrEllipseView;
+@property (strong, nonatomic) RectangleOrEllipseView *rectangleOrEllipseView0;
+@property (strong, nonatomic) RectangleOrEllipseView *rectangleOrEllipseView1;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *UIViewAnimationOptionTransitionSegmentedControl;
-@property BOOL flipRectangleOrEllipseReverse;
+
 @end
 
 @implementation FourthViewController
+
+#pragma mark -  flip mars
 
 - (IBAction)flipButton:(UIButton *)sender
 {
@@ -29,6 +32,9 @@
     }];
     
 }
+
+#pragma mark -  flip rectangle to ellipse
+
 - (IBAction)flipRectangleOrEllipseButtonPressed:(UIButton *)sender
 {
     [self flip];
@@ -36,16 +42,6 @@
 
 -(void) flip
 {
-    
-    /*
-     UIViewAnimationOptionTransitionFlipFromLeft    = 1 << 20,
-     UIViewAnimationOptionTransitionFlipFromRight   = 2 << 20,
-     UIViewAnimationOptionTransitionCurlUp          = 3 << 20,
-     UIViewAnimationOptionTransitionCurlDown        = 4 << 20,
-     UIViewAnimationOptionTransitionCrossDissolve   = 5 << 20,
-     UIViewAnimationOptionTransitionFlipFromTop     = 6 << 20,
-     UIViewAnimationOptionTransitionFlipFromBottom  = 7 << 20,
-     */
     
     NSUInteger opts;
     switch (self.UIViewAnimationOptionTransitionSegmentedControl.selectedSegmentIndex) {
@@ -80,25 +76,44 @@
     
     
     
-//    opts = opts | UIViewAnimationOptionAllowAnimatedContent; // makes no difference
+    opts = opts | UIViewAnimationOptionAllowAnimatedContent; // makes no difference
     
-    self.flipRectangleOrEllipseReverse = !self.flipRectangleOrEllipseReverse;
-    [UIView transitionWithView: self.rectangleOrEllipseView duration: 1 options: opts animations:^{
-        [self.rectangleOrEllipseView setNeedsDisplay];
+    CGRect newBounds = CGRectMake(0, 0, 0, 0);
+    
+    CGRect originalBounds0 = self.rectangleOrEllipseView0.bounds;
+    self.rectangleOrEllipseView0.bounds = newBounds;
+    
+
+    
+    [UIView transitionWithView: self.rectangleOrEllipseView0 duration: 0.8 options: opts animations:^{
+        self.rectangleOrEllipseView0.bounds = originalBounds0;
+        [self.rectangleOrEllipseView0 setNeedsDisplay];
+        
+    } completion:nil];
+    
+    CGRect originalBounds1 = self.rectangleOrEllipseView1.bounds;
+    self.rectangleOrEllipseView1.bounds = newBounds;
+    
+    [UIView transitionWithView: self.rectangleOrEllipseView1 duration: 1 options: opts animations:^{
+        
+        self.rectangleOrEllipseView1.bounds = originalBounds1;
+        [self.rectangleOrEllipseView1 setNeedsDisplay];
+        
     } completion:nil];
 }
 
-
+#pragma mark - UIViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.flipped = NO;
     
-    self.flipRectangleOrEllipseReverse = NO;
+    self.rectangleOrEllipseView0 = [[RectangleOrEllipseView alloc]initWithFrame: CGRectMake(20.0, 200.0, 100.0, 100.0)];
+    [self.view addSubview:self.rectangleOrEllipseView0];
     
-    self.rectangleOrEllipseView = [[RectangleOrEllipseView alloc]initWithFrame: CGRectMake(20.0, 200.0, 100.0, 100.0)];
-    [self.view addSubview:self.rectangleOrEllipseView];
+    self.rectangleOrEllipseView1 = [[RectangleOrEllipseView alloc]initWithFrame: CGRectMake(20.0, 300.0, 100.0, 100.0)];
+    [self.view addSubview:self.rectangleOrEllipseView1];
 }
 
 @end
