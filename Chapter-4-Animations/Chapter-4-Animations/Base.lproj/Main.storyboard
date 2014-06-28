@@ -641,7 +641,7 @@
             </objects>
             <point key="canvasLocation" x="2961" y="983"/>
         </scene>
-        <!--Third View Controller - View Animations 2-->
+        <!--Third View Controller - Springing & Keyframes-->
         <scene sceneID="YeL-xa-SLn">
             <objects>
                 <viewController id="0JT-SL-9UY" customClass="ThirdViewController" sceneMemberID="viewController">
@@ -893,7 +893,7 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Animations 2" id="sPo-BD-z3P"/>
+                    <tabBarItem key="tabBarItem" title="Springing &amp; Keyframes" id="sPo-BD-z3P"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="dampingSlider" destination="RSh-0u-KTP" id="NNw-Mr-0tB"/>
@@ -928,6 +928,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="h1d-hC-60A" kind="relationship" relationship="viewControllers" id="ePA-bl-3VD"/>
                         <segue destination="0JT-SL-9UY" kind="relationship" relationship="viewControllers" id="Zbj-7k-50y"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -937,8 +938,57 @@
             </objects>
             <point key="canvasLocation" x="2023" y="718"/>
         </scene>
+        <!--Fourth View Controller - Transitions-->
+        <scene sceneID="yCn-mw-1q6">
+            <objects>
+                <viewController id="h1d-hC-60A" customClass="FourthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8vD-bX-f5n"/>
+                        <viewControllerLayoutGuide type="bottom" id="QaT-S2-iUA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rpI-sI-Dv5">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mars" translatesAutoresizingMaskIntoConstraints="NO" id="iBB-dm-Kmk">
+                                <rect key="frame" x="20" y="20" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1Y6-Vu-Ixn"/>
+                                    <constraint firstAttribute="height" constant="100" id="zFi-mr-Ulr"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StK-VW-4Xd">
+                                <rect key="frame" x="128" y="55" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Flip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flipButton:" destination="h1d-hC-60A" eventType="touchUpInside" id="K3b-XW-XGZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iBB-dm-Kmk" firstAttribute="top" secondItem="8vD-bX-f5n" secondAttribute="bottom" id="Ky8-tv-5q6"/>
+                            <constraint firstItem="iBB-dm-Kmk" firstAttribute="leading" secondItem="rpI-sI-Dv5" secondAttribute="leading" constant="20" id="M03-36-buy"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Transitions" id="Hb6-BH-Qfn"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="flipImageView" destination="iBB-dm-Kmk" id="dSw-1L-N27"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueu-yw-Spz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2961" y="2753"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Mars" width="109" height="109"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
