@@ -30,9 +30,39 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *UIViewAnimationOptionTransitionSegmentedControl;
 
+@property (strong, nonatomic) IBOutlet UILabel *flipLabel; // default is weak but needs to be strong to retain and flip back
+@property (strong,nonatomic) UILabel *flippedLabel;
+@property BOOL labelFlipped;
 @end
 
 @implementation FourthViewController
+
+#pragma mark - transitionFromView:toView:
+
+- (IBAction)flipLabelButtonPressed:(UIButton *)sender
+{
+//    self.flippedLabel =[[UILabel alloc] initWithFrame:self.flipLabel.frame];
+//    self.flippedLabel.text = @"Bad!";
+//    [self.flippedLabel sizeToFit];
+    if(!self.labelFlipped){
+        [UIView transitionFromView: self.flipLabel
+                            toView: self.flippedLabel
+                          duration: 0.8
+                           options: UIViewAnimationOptionTransitionFlipFromLeft
+                        completion: ^(BOOL finished){
+                            self.labelFlipped = !self.labelFlipped;
+                        }];
+    }else{
+        [UIView transitionFromView: self.flippedLabel
+                            toView: self.flipLabel
+                          duration: 0.8
+                           options: UIViewAnimationOptionTransitionFlipFromLeft
+                        completion: ^(BOOL finished){
+                            self.labelFlipped = !self.labelFlipped;
+                        }];
+    }
+}
+
 
 #pragma mark -  flip mars
 
@@ -253,6 +283,12 @@
     
     self.rectangleOrEllipseView13 = [[RectangleOrEllipseView alloc]initWithFrame: CGRectMake(920.0, 600.0, 100.0, 100.0)];
     [self.view addSubview:self.rectangleOrEllipseView13];
+    
+    
+    self.flippedLabel =[[UILabel alloc] initWithFrame:self.flipLabel.frame];
+    self.flippedLabel.text = @"Bad!";
+    [self.flippedLabel sizeToFit];
+    self.labelFlipped = NO;
 }
 
 @end
