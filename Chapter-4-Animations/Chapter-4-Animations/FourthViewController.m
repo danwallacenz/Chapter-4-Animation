@@ -7,10 +7,12 @@
 //
 
 #import "FourthViewController.h"
+#import "RectangleOrEllipseView.h"
 
 @interface FourthViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *flipImageView;
 @property BOOL flipped;
+@property (strong, nonatomic) RectangleOrEllipseView *rectangleOrEllipseView;
 
 @end
 
@@ -25,12 +27,19 @@
     }];
     
 }
+- (IBAction)flipRectangleOrEllipseButtonPressed:(UIButton *)sender
+{
+    [self.rectangleOrEllipseView flip];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.flipped = NO;
+    
+    self.rectangleOrEllipseView = [[RectangleOrEllipseView alloc]initWithFrame: CGRectMake(20.0, 200.0, 100.0, 100.0)];
+    [self.view addSubview:self.rectangleOrEllipseView];
 }
 
 @end
