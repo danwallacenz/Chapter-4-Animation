@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *uiViewAnimationCurveSegmentedControl;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *relativeDurationsSegmentedControl;
 @end
 
 @implementation ThirdViewController
@@ -102,26 +103,77 @@
     }
     opts = opts | uiViewAnimationCurveOption;
     
+    
+    CGFloat relativeDuration0;
+    CGFloat relativeDuration1;
+    CGFloat relativeDuration2;
+    CGFloat relativeDuration3;
+    
+    switch (self.relativeDurationsSegmentedControl.selectedSegmentIndex){
+        case 0:
+            relativeDuration0 = .1;
+//            relativeStartTime0 = 0;
+            
+            relativeDuration1 = .2;
+//            relativeStartTime1 = .1;
+            
+            relativeDuration2 = .3;
+//            relativeStartTime2 = .3;
+            
+            relativeDuration3 = .4;
+//            relativeStartTime3 = .6;
+            break;
+        case 1:
+            relativeDuration0 = .4;
+            relativeDuration1 = .3;
+            relativeDuration2 = .2;
+            relativeDuration3 = .1;
+            break;
+        case 2:
+            relativeDuration0 = .1;
+            relativeDuration1 = .4;
+            relativeDuration2 = .4;
+            relativeDuration3 = .1;
+            break;
+        case 3:
+            relativeDuration0 = .4;
+            relativeDuration1 = .1;
+            relativeDuration2 = .1;
+            relativeDuration3 = .4;
+            break;
+        default:
+            relativeDuration0 = .25;
+            relativeDuration1 = .25;
+            relativeDuration2 = .25;
+            relativeDuration3 = .25;
+            break;
+    }
+    
+    CGFloat relativeStartTime0 = 0;
+    CGFloat relativeStartTime1 = relativeDuration0;
+    CGFloat relativeStartTime2 = relativeDuration0 + relativeDuration1;
+    CGFloat relativeStartTime3 = relativeDuration0 + relativeDuration1 + relativeDuration2;
+    
     [UIView animateKeyframesWithDuration: 4 delay: 0 options: opts animations:^{
         
-        self.greenRectangle.alpha = 0;
+//        self.greenRectangle.alpha = 0;
         
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:.25 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:relativeStartTime0 relativeDuration: relativeDuration0 animations:^{
             center.x += 100;
             center.y += 50;
             self.greenRectangle.center = center;
         }];
-        [UIView addKeyframeWithRelativeStartTime:.25 relativeDuration:.25 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:relativeStartTime1 relativeDuration: relativeDuration1 animations:^{
             center.x -= 100;
             center.y += 50;
             self.greenRectangle.center = center;
         }];
-        [UIView addKeyframeWithRelativeStartTime:.5 relativeDuration:.25 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:relativeStartTime2 relativeDuration: relativeDuration2 animations:^{
             center.x += 100;
             center.y += 50;
             self.greenRectangle.center = center;
         }];
-        [UIView addKeyframeWithRelativeStartTime:.75 relativeDuration:.25 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:relativeStartTime3 relativeDuration: relativeDuration3 animations:^{
             center.x -= 100;
             center.y += 50;
             self.greenRectangle.center = center;

@@ -837,6 +837,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="{doesn't seem to work)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKn-fc-K41">
+                                <rect key="frame" x="646" y="274" width="177" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hZQ-4o-odB">
+                                <rect key="frame" x="462" y="370" width="385" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="10:20:30:40"/>
+                                    <segment title="40:30:20:10"/>
+                                    <segment title="10:40:40:10"/>
+                                    <segment title="40:10:10:40"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relative Durations - some examples" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZV-Kz-ZC0">
+                                <rect key="frame" x="462" y="341" width="385" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -883,6 +905,7 @@
                         <outlet property="initialSpringVelocityStepperValueLabel" destination="mwH-dX-P5v" id="af9-zA-716"/>
                         <outlet property="leftButton" destination="dgJ-xB-Ywy" id="raG-YY-tAc"/>
                         <outlet property="orangeRectangle" destination="eVK-hJ-RCT" id="pVk-Sc-NLf"/>
+                        <outlet property="relativeDurationsSegmentedControl" destination="hZQ-4o-odB" id="yjV-8S-U72"/>
                         <outlet property="resetKeyframeButton" destination="jqV-j8-NNG" id="fuU-oz-RUo"/>
                         <outlet property="rightButton" destination="CPg-L2-ifq" id="6Ij-HU-lGs"/>
                         <outlet property="runKeyframeButton" destination="Sfa-ow-yHK" id="YxE-pw-nJS"/>
