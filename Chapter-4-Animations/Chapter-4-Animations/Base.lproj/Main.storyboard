@@ -1407,6 +1407,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gK6-NH-pHk">
+                                <rect key="frame" x="622" y="333" width="383" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Linear"/>
+                                    <segment title="EaseIn"/>
+                                    <segment title="EaseOut"/>
+                                    <segment title="EaseInEaseOut"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAMediaTiming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBu-YC-RGx">
+                                <rect key="frame" x="491" y="336" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1422,6 +1438,7 @@
                     <tabBarItem key="tabBarItem" title="Implicit Layer Animation" id="CLC-sr-JTI"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="caMediaTimingSegmentedControl" destination="gK6-NH-pHk" id="7Rz-WJ-llm"/>
                         <outlet property="durationSlider" destination="OA2-I0-Mni" id="zOS-rL-7wq"/>
                         <outlet property="durationSliderValueLabel" destination="jix-J0-Uuo" id="kUh-RE-yrK"/>
                     </connections>

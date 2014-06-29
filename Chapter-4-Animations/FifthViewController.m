@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *durationSlider;
 @property (weak, nonatomic) IBOutlet UILabel *durationSliderValueLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *caMediaTimingSegmentedControl;
+
 @end
 
 @implementation FifthViewController
@@ -31,10 +33,34 @@
 
 -(void)setCATransactionValues
 {
+    // duration
     [CATransaction setAnimationDuration:self.durationSlider.value];
+    
+    // completion block
     [CATransaction setCompletionBlock:^{
         NSLog(@"Animation complete");
     }];
+
+    // timing function
+    NSInteger selectedIndex = self.caMediaTimingSegmentedControl.selectedSegmentIndex;
+    switch (selectedIndex) {
+        case 0:
+            [CATransaction setAnimationTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+            break;
+        case 1:
+            [CATransaction setAnimationTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+            break;
+        case 2:
+            [CATransaction setAnimationTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+            break;
+        case 3:
+            [CATransaction setAnimationTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+            break;
+        default:
+            [CATransaction setAnimationTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+            break;
+    }
+    
 }
 
 #pragma mark - CAGradientLayer animatable properties
@@ -101,7 +127,8 @@
     self.layer3 = [CAGradientLayer new];
     self.layer3.frame = CGRectMake(600, 500, 300, 200);
     self.layer3.colors = @[(id)[UIColor blackColor].CGColor,
-                           (id)[UIColor redColor].CGColor];
+                           (id)[UIColor redColor].CGColor,
+                           (id)[UIColor yellowColor].CGColor];
     
     self.layer3.locations = nil;
     self.layer3.endPoint = CGPointMake(0.5, 1.0);
@@ -413,7 +440,7 @@
 //    self.layer3.colors = @[[self randomColor],[self randomColor],[self randomColor]];
     
     self.layer3.colors = @[(id)[UIColor blackColor].CGColor,
-                 (id)[UIColor redColor].CGColor];
+                 (id)[UIColor redColor].CGColor, (id)[UIColor yellowColor].CGColor];
     
     self.layer3.endPoint = CGPointMake(0.5, 1.0);
     self.layer3.locations = nil;
