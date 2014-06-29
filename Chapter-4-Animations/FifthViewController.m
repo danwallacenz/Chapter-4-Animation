@@ -12,10 +12,52 @@
 
 @property (strong, nonatomic) UIView *layerHierarchyContainer;
 @property (strong, nonatomic) CALayer *layer0;
+@property (strong, nonatomic) CAShapeLayer *layer1;
 
 @end
 
 @implementation FifthViewController
+
+#pragma mark - CAShaperLayer animatable properties
+/*
+ 
+ circle.contentsScale = [UIScreen mainScreen].scale;
+ circle.lineWidth = 2.0;
+ circle.fillColor = [UIColor colorWithRed:0.9 green:0.95 blue:0.93 alpha:0.9].CGColor;
+ circle.strokeColor = [UIColor grayColor].CGColor;
+ CGMutablePathRef p = CGPathCreateMutable();
+ CGPathAddEllipseInRect(p, nil, CGRectInset(self.bounds, 3, 3));
+ circle.path = p;
+ CGPathRelease(p);
+ 
+ 
+ 
+ */
+- (IBAction)pathButtonPressed:(id)sender
+{
+    self.layer1.contentsScale = [UIScreen mainScreen].scale;
+     self.layer1.lineWidth = 4.0;
+//     self.layer1.fillColor = [UIColor clearColor].CGColor;
+     self.layer1.strokeColor = [self randomColor].CGColor;
+    CGMutablePathRef p = CGPathCreateMutable();
+    CGPathAddEllipseInRect(p, nil, CGRectInset( self.layer1.bounds, 3, 3));
+    self.layer1.path = p;
+    CGPathRelease(p);
+    
+}
+- (IBAction)resetShapelayerButtonPressed:(id)sender
+{
+    [self.layer1 removeFromSuperlayer];
+    self.layer1 = nil;
+    
+    self.layer1 = [CAShapeLayer new];
+    self.layer1.frame = CGRectMake(100, 420, 100, 100);
+    self.layer1.backgroundColor = [[self randomColor] CGColor];
+    self.layer1.fillColor = [UIColor clearColor].CGColor;
+    [self.view.layer addSublayer: self.layer1];
+}
+
+#pragma mark - CALayer animatable properties in action
 
 - (IBAction)transformButtonPressed:(UIButton *)sender
 {
@@ -173,13 +215,21 @@
     // Do any additional setup after loading the view.
     
     self.layerHierarchyContainer = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    self.layerHierarchyContainer.backgroundColor = [UIColor clearColor];
+//    self.layerHierarchyContainer.backgroundColor = [UIColor clearColor];
+    self.layerHierarchyContainer.backgroundColor = [UIColor yellowColor];
     [self.view addSubview: self.layerHierarchyContainer];
     
     self.layer0 = [CALayer new];
     self.layer0.frame = CGRectMake(0, 0, 100, 100);
     self.layer0.backgroundColor = [[self randomColor] CGColor];
     [self.layerHierarchyContainer.layer addSublayer: self.layer0];
+    
+    self.layer1 = [CAShapeLayer new];
+    self.layer1.frame = CGRectMake(100, 420, 100, 100);
+    self.layer1.backgroundColor = [[self randomColor] CGColor];
+    self.layer1.fillColor = [UIColor clearColor].CGColor;
+    [self.view.layer addSublayer: self.layer1];
+    
 }
 
 #pragma mark - utils

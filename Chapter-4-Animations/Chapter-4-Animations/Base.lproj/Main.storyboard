@@ -1219,14 +1219,68 @@
                                     <action selector="shadowColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="znO-DE-G1h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAShapeLayer Implicit Animation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk4-sm-WAB">
+                                <rect key="frame" x="20" y="373" width="257" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWZ-FG-pMP">
+                                <rect key="frame" x="292" y="410" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="path">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pathButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="Bzg-LC-1eg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DL-6B-flp">
+                                <rect key="frame" x="331" y="410" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="fillColor">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNV-Mt-dcy">
+                                <rect key="frame" x="392" y="410" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="strokeColor">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-OV-Ts1">
+                                <rect key="frame" x="480" y="410" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="lineWidth">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIP-Tr-gqA">
+                                <rect key="frame" x="552" y="410" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="lineDashPhase">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U31-cZ-z5C">
+                                <rect key="frame" x="292" y="448" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetShapelayerButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="aqS-EM-HAd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hVL-UP-09I" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="70" id="2iy-N8-2NP"/>
-                            <constraint firstItem="Pbm-SZ-cdf" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="209" id="8tu-wh-kxg"/>
-                            <constraint firstItem="bZf-r7-KyC" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="33" id="Giz-kl-YOJ"/>
+                            <constraint firstItem="bZf-r7-KyC" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="33" id="1kp-me-xDF"/>
                             <constraint firstItem="hVL-UP-09I" firstAttribute="leading" secondItem="qiW-YG-Bt7" secondAttribute="leading" constant="220" id="K6P-u5-kef"/>
+                            <constraint firstItem="hVL-UP-09I" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="70" id="Yfu-0Z-kb9"/>
                             <constraint firstItem="Pbm-SZ-cdf" firstAttribute="leading" secondItem="qiW-YG-Bt7" secondAttribute="leading" constant="20" id="dZk-bz-W5N"/>
+                            <constraint firstItem="Pbm-SZ-cdf" firstAttribute="top" secondItem="fOM-W1-HSw" secondAttribute="bottom" constant="209" id="upQ-F2-Ps5"/>
                             <constraint firstItem="bZf-r7-KyC" firstAttribute="leading" secondItem="qiW-YG-Bt7" secondAttribute="leading" constant="20" id="us3-PJ-rkx"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
