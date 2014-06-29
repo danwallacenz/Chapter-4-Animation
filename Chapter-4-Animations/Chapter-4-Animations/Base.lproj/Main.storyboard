@@ -1387,6 +1387,26 @@
                                     <action selector="gradientEndPointButtonPressed" destination="CE3-Xk-9yt" eventType="touchUpInside" id="nCc-HF-FEf"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="OA2-I0-Mni">
+                                <rect key="frame" x="563" y="369" width="366" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="durationSliderValueChanged:" destination="CE3-Xk-9yt" eventType="valueChanged" id="6Ob-2N-bz0"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL4-I7-76Y">
+                                <rect key="frame" x="491" y="373" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jix-J0-Uuo">
+                                <rect key="frame" x="938" y="373" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1401,6 +1421,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Implicit Layer Animation" id="CLC-sr-JTI"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="durationSlider" destination="OA2-I0-Mni" id="zOS-rL-7wq"/>
+                        <outlet property="durationSliderValueLabel" destination="jix-J0-Uuo" id="kUh-RE-yrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLP-iD-0Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,15 +16,33 @@
 @property (strong, nonatomic) CATextLayer *layer2;
 @property (strong, nonatomic) CAGradientLayer *layer3;
 
+@property (weak, nonatomic) IBOutlet UISlider *durationSlider;
+@property (weak, nonatomic) IBOutlet UILabel *durationSliderValueLabel;
 @end
 
 @implementation FifthViewController
+
+#pragma mark - CATransaction properties
+
+- (IBAction)durationSliderValueChanged:(UISlider *)sender
+{
+    self.durationSliderValueLabel.text = [NSString stringWithFormat:@"%0.1f secs", sender.value];
+}
+
+-(void)setCATransactionValues
+{
+    [CATransaction setAnimationDuration:self.durationSlider.value];
+    [CATransaction setCompletionBlock:^{
+        NSLog(@"Animation complete");
+    }];
+}
 
 #pragma mark - CAGradientLayer animatable properties
 
 
 - (IBAction)gradientStartPointButtonPressed
 {
+    [self setCATransactionValues];
     int ix = arc4random_uniform(101);
     int iy = arc4random_uniform(101);
     double dx = ix/100.0;
@@ -34,6 +52,7 @@
 
 - (IBAction)gradientEndPointButtonPressed
 {
+    [self setCATransactionValues];
     int ix = arc4random_uniform(101);
     int iy = arc4random_uniform(101);
     double dx = ix/100.0;
@@ -64,11 +83,13 @@
     locations[1] = @(r1);
     locations[1] = @(r2);
 
+    [self setCATransactionValues];
     self.layer3.locations = locations;
 }
 
 - (IBAction)gradientColorsButtonPressed
 {
+    [self setCATransactionValues];
     self.layer3.colors = @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor, (id)[self randomColor].CGColor];
 }
 
@@ -85,17 +106,21 @@
     self.layer3.locations = nil;
     self.layer3.endPoint = CGPointMake(0.5, 1.0);
     [self.view.layer addSublayer: self.layer3];
+    
+    [self.durationSlider setValue: 0.4];
 }
 
 #pragma mark - CATextLayer animatable properties
 
 - (IBAction)fontSizeButtonPressed
 {
+    [self setCATransactionValues];
     self.layer2.fontSize = self.layer2.fontSize + 5.0;
 }
 
 - (IBAction)forgroundColorButtonPressed
 {
+    [self setCATransactionValues];
     self.layer2.foregroundColor = [self randomColor].CGColor;
 }
 
@@ -115,11 +140,13 @@
 
 - (IBAction)miterLimitButtonPressed
 {
+    [self setCATransactionValues];
     self.layer1.miterLimit = 20.0;
 }
 
 - (IBAction)lineDashPhaseButtonPressed
 {
+    [self setCATransactionValues];
     self.layer1.lineDashPattern = @[@20,@30];
     if(self.layer1.lineDashPhase == 100.0){
         self.layer1.lineDashPhase = 0;
@@ -130,6 +157,7 @@
 
 - (IBAction)lineWidthButtonPressed
 {
+    [self setCATransactionValues];
     if(self.layer1.lineWidth == 4.0){
         self.layer1.lineWidth = 10.0;
     }else{
@@ -139,16 +167,19 @@
 
 - (IBAction)strokeColorButtonPressed:(id)sender
 {
+    [self setCATransactionValues];
     self.layer1.strokeColor = [self randomColor].CGColor;
 }
 
 - (IBAction)fillColorButtonPressed:(id)sender
 {
+    [self setCATransactionValues];
     self.layer1.fillColor = [self randomColor].CGColor;
 }
 
 - (IBAction)pathButtonPressed:(id)sender
 {
+    [self setCATransactionValues];
     self.layer1.contentsScale = [UIScreen mainScreen].scale;
     self.layer1.lineWidth = 4.0;
     self.layer1.strokeColor = [self randomColor].CGColor;
@@ -160,6 +191,7 @@
 }
 - (IBAction)resetShapelayerButtonPressed:(id)sender
 {
+    [self setCATransactionValues];
     [self.layer1 removeFromSuperlayer];
     self.layer1 = nil;
     
@@ -174,55 +206,65 @@
 
 - (IBAction)transformButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.transform = CATransform3DMakeRotation(M_PI/4, 2, 2, 2);
 }
 
 #warning doesn't do anything without sublayers
 - (IBAction)sublayerTransformButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.sublayerTransform = CATransform3DMakeRotation(M_PI/4, 2, 2, 2);
 }
 
 - (IBAction)shadowRadiusButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.shadowRadius = 5.0;
 }
 
 - (IBAction)shadowOpacityButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.shadowOpacity = 0.5;
 }
 
 - (IBAction)shadowOffsetButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.shadowOffset = CGSizeMake(0.0, -5.0);
 }
 
 - (IBAction)shadowColorButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.shadowColor = [self randomColor].CGColor;
 }
 
 #warning ??
 - (IBAction)shouldRasterizeButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.shouldRasterize = !self.layer0.shouldRasterize;
 }
 
 #warning ???
 - (IBAction)rasterizationScaleButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.rasterizationScale = 0.5;
 }
 
 #warning doesn't do anything currently
 - (IBAction)zPositionButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.zPosition = -20.0;
 }
 
 - (IBAction)positionButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     CGPoint position = self.layer0.position;
     position.x += 50.0;
     position.y += 50.0;
@@ -231,45 +273,53 @@
 
 - (IBAction)opacityButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.opacity = 0.5;
 }
 
 - (IBAction)masksToBoundsButtonPressed:(UIButton *)sender
 {
  
+    [self setCATransactionValues];
     self.layer0.masksToBounds = !self.layer0.masksToBounds;
 }
 
 - (IBAction)hiddenButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.hidden = !self.layer0.hidden;
 }
 
 #warning fuck knows
 - (IBAction)doubleSidedButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.doubleSided = !self.layer0.doubleSided;
 }
 
 - (IBAction)cornerRadiusButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.cornerRadius = 20.0;
 }
 
 #warning fuck knows what this does either
 - (IBAction)contentsRectButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.contentsRect = CGRectMake(.5, .5, 0.5, .5);
 }
 
 #warning fuck knows what this does
 - (IBAction)contentsCenterButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.contentsCenter = CGRectMake(0, 0, 0.5,0.5);
 }
 
 - (IBAction)contentsButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     UIImage *mars = [UIImage imageNamed: @"Mars"];
     self.layer0.contents = (__bridge id)([mars CGImage]);
 }
@@ -279,33 +329,40 @@
     CGRect oldBounds = self.layer0.bounds;
 
     CGRect newBounds = CGRectMake(0, 0, oldBounds.size.width * 1.2, oldBounds.size.height * 1.2);
+    
+    [self setCATransactionValues];
     self.layer0.bounds = newBounds;
 }
 
 
 - (IBAction)borderWidthColorButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.borderWidth = 4.0f;
 }
 
 - (IBAction)borderColorButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
      self.layer0.borderColor = [self randomColor].CGColor;
 }
 
 - (IBAction)backgroundColorButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.backgroundColor = [self randomColor].CGColor;
 }
 
 #warning TODO do something with this
 - (IBAction)anchorPointZButtonPressed:(id)sender
 {
+    [self setCATransactionValues];
     self.layer0.anchorPointZ = 1.0;
 }
 
 - (IBAction)anchorPointButtonPressed:(UIButton *)sender
 {
+    [self setCATransactionValues];
     self.layer0.anchorPoint = CGPointMake(0.4, 0.4);
 }
 
