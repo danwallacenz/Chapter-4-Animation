@@ -1241,6 +1241,9 @@
                                 <state key="normal" title="fillColor">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="fillColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="UVQ-n3-wRR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNV-Mt-dcy">
                                 <rect key="frame" x="392" y="410" width="80" height="30"/>
@@ -1248,6 +1251,9 @@
                                 <state key="normal" title="strokeColor">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="strokeColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="vrS-v1-sSF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-OV-Ts1">
                                 <rect key="frame" x="480" y="410" width="64" height="30"/>
@@ -1255,6 +1261,9 @@
                                 <state key="normal" title="lineWidth">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="lineWidthButtonPressed" destination="CE3-Xk-9yt" eventType="touchUpInside" id="f6t-aZ-cBJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIP-Tr-gqA">
                                 <rect key="frame" x="552" y="410" width="102" height="30"/>
@@ -1262,6 +1271,9 @@
                                 <state key="normal" title="lineDashPhase">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="lineDashPhaseButtonPressed" destination="CE3-Xk-9yt" eventType="touchUpInside" id="n2w-jv-sX1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U31-cZ-z5C">
                                 <rect key="frame" x="292" y="448" width="40" height="30"/>
@@ -1271,6 +1283,16 @@
                                 </state>
                                 <connections>
                                     <action selector="resetShapelayerButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="aqS-EM-HAd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSO-yy-REa">
+                                <rect key="frame" x="662" y="410" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="miterLimit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="miterLimitButtonPressed" destination="CE3-Xk-9yt" eventType="touchUpInside" id="Muh-mu-FOH"/>
                                 </connections>
                             </button>
                         </subviews>

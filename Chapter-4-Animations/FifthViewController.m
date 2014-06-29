@@ -19,26 +19,46 @@
 @implementation FifthViewController
 
 #pragma mark - CAShaperLayer animatable properties
-/*
- 
- circle.contentsScale = [UIScreen mainScreen].scale;
- circle.lineWidth = 2.0;
- circle.fillColor = [UIColor colorWithRed:0.9 green:0.95 blue:0.93 alpha:0.9].CGColor;
- circle.strokeColor = [UIColor grayColor].CGColor;
- CGMutablePathRef p = CGPathCreateMutable();
- CGPathAddEllipseInRect(p, nil, CGRectInset(self.bounds, 3, 3));
- circle.path = p;
- CGPathRelease(p);
- 
- 
- 
- */
+
+- (IBAction)miterLimitButtonPressed
+{
+    self.layer1.miterLimit = 20.0;
+}
+
+- (IBAction)lineDashPhaseButtonPressed
+{
+    self.layer1.lineDashPattern = @[@20,@30];
+    if(self.layer1.lineDashPhase == 100.0){
+        self.layer1.lineDashPhase = 0;
+    }else{
+        self.layer1.lineDashPhase = 100.0;
+    }
+}
+
+- (IBAction)lineWidthButtonPressed
+{
+    if(self.layer1.lineWidth == 4.0){
+        self.layer1.lineWidth = 10.0;
+    }else{
+        self.layer1.lineWidth = 4.0;
+    }
+}
+
+- (IBAction)strokeColorButtonPressed:(id)sender
+{
+    self.layer1.strokeColor = [self randomColor].CGColor;
+}
+
+- (IBAction)fillColorButtonPressed:(id)sender
+{
+    self.layer1.fillColor = [self randomColor].CGColor;
+}
+
 - (IBAction)pathButtonPressed:(id)sender
 {
     self.layer1.contentsScale = [UIScreen mainScreen].scale;
-     self.layer1.lineWidth = 4.0;
-//     self.layer1.fillColor = [UIColor clearColor].CGColor;
-     self.layer1.strokeColor = [self randomColor].CGColor;
+    self.layer1.lineWidth = 4.0;
+    self.layer1.strokeColor = [self randomColor].CGColor;
     CGMutablePathRef p = CGPathCreateMutable();
     CGPathAddEllipseInRect(p, nil, CGRectInset( self.layer1.bounds, 3, 3));
     self.layer1.path = p;
