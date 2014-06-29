@@ -979,6 +979,9 @@
                                 <state key="normal" title="anchorPoint">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="anchorPointButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="rDi-y8-DaZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qto-6c-yf7">
                                 <rect key="frame" x="258" y="229" width="119" height="30"/>
@@ -996,6 +999,9 @@
                                 <state key="normal" title="anchorPointZ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="anchorPointZButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="k6g-rI-8tX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoO-hy-jXL">
                                 <rect key="frame" x="476" y="229" width="86" height="30"/>
@@ -1003,6 +1009,9 @@
                                 <state key="normal" title="borderWidth">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="borderWidthColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="KGB-ha-en8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4c-mA-PPJ">
                                 <rect key="frame" x="385" y="229" width="83" height="30"/>
@@ -1010,6 +1019,9 @@
                                 <state key="normal" title="borderColor">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="borderColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="Tgx-u6-XwW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwl-M5-2Rm">
                                 <rect key="frame" x="630" y="229" width="60" height="30"/>
@@ -1017,6 +1029,9 @@
                                 <state key="normal" title="contents">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="contentsButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="CD2-XF-k8l"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8W-yN-m8t">
                                 <rect key="frame" x="570" y="229" width="52" height="30"/>
@@ -1024,6 +1039,9 @@
                                 <state key="normal" title="bounds">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="boundsButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="sNV-qE-XGH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxU-bV-KUv">
                                 <rect key="frame" x="812" y="229" width="92" height="30"/>
@@ -1031,6 +1049,9 @@
                                 <state key="normal" title="contentsRect">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="contentsRectButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="0QG-g9-6CH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPF-ep-B2Q">
                                 <rect key="frame" x="698" y="229" width="106" height="30"/>
@@ -1038,6 +1059,9 @@
                                 <state key="normal" title="contentsCenter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="contentsCenterButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="yz4-jw-oL7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRw-cm-kX3">
                                 <rect key="frame" x="20" y="267" width="87" height="30"/>
@@ -1045,6 +1069,9 @@
                                 <state key="normal" title="doubleSided">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doubleSidedButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="eSQ-3g-rqH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vv0-dd-Vk4">
                                 <rect key="frame" x="912" y="229" width="92" height="30"/>
@@ -1052,6 +1079,9 @@
                                 <state key="normal" title="cornerRadius">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cornerRadiusButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="BTn-Mt-9jz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-gf-LoX">
                                 <rect key="frame" x="170" y="267" width="114" height="30"/>
@@ -1059,6 +1089,9 @@
                                 <state key="normal" title="masksToBounds">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="masksToBoundsButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="j7j-aI-eXb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cW-Ib-Z1Y">
                                 <rect key="frame" x="115" y="267" width="47" height="30"/>
@@ -1066,6 +1099,9 @@
                                 <state key="normal" title="hidden">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="hiddenButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="mGy-V5-55k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IA-ap-fkC">
                                 <rect key="frame" x="351" y="267" width="55" height="30"/>
@@ -1073,6 +1109,9 @@
                                 <state key="normal" title="position">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="positionButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="WQb-Vk-znW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwH-G3-2Xh">
                                 <rect key="frame" x="292" y="267" width="51" height="30"/>
@@ -1080,6 +1119,9 @@
                                 <state key="normal" title="opacity">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="opacityButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="fa0-F9-kpR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3M-yc-phK">
                                 <rect key="frame" x="485" y="267" width="122" height="30"/>
@@ -1087,6 +1129,9 @@
                                 <state key="normal" title="rasterizationScale">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="rasterizationScaleButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="7jD-NO-0O5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2r-y9-4SF">
                                 <rect key="frame" x="414" y="267" width="63" height="30"/>
@@ -1094,13 +1139,19 @@
                                 <state key="normal" title="zPosition">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="zPositionButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="Hsr-DD-3AH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJy-pg-Crt">
-                                <rect key="frame" x="733" y="267" width="95" height="30"/>
+                                <rect key="frame" x="832" y="267" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="shadowOffset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shadowOffsetButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="5cT-Ql-FlY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GN9-Nq-8y9">
                                 <rect key="frame" x="615" y="267" width="110" height="30"/>
@@ -1108,20 +1159,19 @@
                                 <state key="normal" title="shouldRasterize">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shouldRasterizeButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="uUd-26-RRC"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmS-Db-QKi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDP-uu-Iq4">
                                 <rect key="frame" x="20" y="305" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="shadowOpacity">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDP-uu-Iq4">
-                                <rect key="frame" x="836" y="267" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="shadowOpacity">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <connections>
+                                    <action selector="shadowOpacityButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="YXv-UP-J9v"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY6-yk-P7Q">
                                 <rect key="frame" x="244" y="305" width="127" height="30"/>
@@ -1129,6 +1179,9 @@
                                 <state key="normal" title="sublayerTransform">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sublayerTransformButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="XPN-id-Qt8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9o-2g-hZH">
                                 <rect key="frame" x="135" y="305" width="101" height="30"/>
@@ -1136,6 +1189,9 @@
                                 <state key="normal" title="shadowRadius">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shadowRadiusButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="maD-hL-BF1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGP-za-l0J">
                                 <rect key="frame" x="379" y="305" width="66" height="30"/>
@@ -1143,6 +1199,9 @@
                                 <state key="normal" title="transform">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="transformButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="ui1-t6-yqW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALayer Implicit Animation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZf-r7-KyC">
                                 <rect key="frame" x="20" y="53" width="208" height="21"/>
@@ -1150,6 +1209,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oau-4t-v2f">
+                                <rect key="frame" x="733" y="267" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="shadowColor">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shadowColorButtonPressed:" destination="CE3-Xk-9yt" eventType="touchUpInside" id="znO-DE-G1h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

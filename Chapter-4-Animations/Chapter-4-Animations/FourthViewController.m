@@ -41,9 +41,7 @@
 
 - (IBAction)flipLabelButtonPressed:(UIButton *)sender
 {
-//    self.flippedLabel =[[UILabel alloc] initWithFrame:self.flipLabel.frame];
-//    self.flippedLabel.text = @"Bad!";
-//    [self.flippedLabel sizeToFit];
+
     if(!self.labelFlipped){
         [UIView transitionFromView: self.flipLabel
                             toView: self.flippedLabel
