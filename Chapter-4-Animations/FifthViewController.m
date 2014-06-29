@@ -13,10 +13,37 @@
 @property (strong, nonatomic) UIView *layerHierarchyContainer;
 @property (strong, nonatomic) CALayer *layer0;
 @property (strong, nonatomic) CAShapeLayer *layer1;
+@property (strong, nonatomic) CATextLayer *layer2;
 
 @end
 
 @implementation FifthViewController
+
+
+
+#pragma mark - CATextLayer animatable properties
+
+- (IBAction)fontSizeButtonPressed
+{
+    self.layer2.fontSize = self.layer2.fontSize + 5.0;
+}
+
+- (IBAction)forgroundColorButtonPressed
+{
+    self.layer2.foregroundColor = [self randomColor].CGColor;
+}
+
+- (IBAction)resetTaxtLayerButtonPressed
+{
+    [self.layer2 removeFromSuperlayer];
+    self.layer2 = nil;
+    
+    self.layer2 = [CATextLayer new];
+    self.layer2.frame = CGRectMake(100, 600, 300, 100);
+    self.layer2.backgroundColor = [[self randomColor] CGColor];
+    self.layer2.string = @"⚽︎ Daniel🔑 ";
+    [self.view.layer addSublayer: self.layer2];
+}
 
 #pragma mark - CAShaperLayer animatable properties
 
@@ -249,6 +276,12 @@
     self.layer1.backgroundColor = [[self randomColor] CGColor];
     self.layer1.fillColor = [UIColor clearColor].CGColor;
     [self.view.layer addSublayer: self.layer1];
+    
+    self.layer2 = [CATextLayer new];
+    self.layer2.frame = CGRectMake(100, 600, 300, 100);
+    self.layer2.backgroundColor = [[self randomColor] CGColor];
+    self.layer2.string = @"⚽︎ Daniel🔑 ";
+    [self.view.layer addSublayer: self.layer2];
     
 }
 
