@@ -12,6 +12,7 @@
 		CB0C2578195E9E0C00053304 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = CB0C2576195E9E0C00053304 /* Contents.json */; };
 		CB0C2579195E9E0C00053304 /* smileyiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0C2577195E9E0C00053304 /* smileyiPhone.png */; };
 		CB0C257C195EA18800053304 /* RectangleOrEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */; };
+		CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257E195F9F2800053304 /* FifthViewController.m */; };
 		CBF9600219592F9D00BE37A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600119592F9D00BE37A1 /* Foundation.framework */; };
 		CBF9600419592F9D00BE37A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600319592F9D00BE37A1 /* CoreGraphics.framework */; };
 		CBF9600619592F9D00BE37A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600519592F9D00BE37A1 /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 		CB0C2577195E9E0C00053304 /* smileyiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smileyiPhone.png; sourceTree = "<group>"; };
 		CB0C257A195EA18800053304 /* RectangleOrEllipseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleOrEllipseView.h; sourceTree = "<group>"; };
 		CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleOrEllipseView.m; sourceTree = "<group>"; };
+		CB0C257D195F9F2800053304 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = ../FifthViewController.h; sourceTree = "<group>"; };
+		CB0C257E195F9F2800053304 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = ../FifthViewController.m; sourceTree = "<group>"; };
 		CBF95FFE19592F9D00BE37A1 /* Chapter-4-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter-4-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF9600119592F9D00BE37A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CBF9600319592F9D00BE37A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				CBF9601319592F9D00BE37A1 /* Main.storyboard */,
+				CB0C257D195F9F2800053304 /* FifthViewController.h */,
+				CB0C257E195F9F2800053304 /* FifthViewController.m */,
 				CB0C257A195EA18800053304 /* RectangleOrEllipseView.h */,
 				CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */,
 				CB0C2572195E9C0900053304 /* FourthViewController.h */,
@@ -292,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */,
 				CB0C2574195E9C0900053304 /* FourthViewController.m in Sources */,
 				CBF9601B19592F9D00BE37A1 /* SecondViewController.m in Sources */,
 				CB0C2571195D754F00053304 /* ThirdViewController.m in Sources */,
