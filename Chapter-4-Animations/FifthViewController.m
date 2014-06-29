@@ -14,12 +14,78 @@
 @property (strong, nonatomic) CALayer *layer0;
 @property (strong, nonatomic) CAShapeLayer *layer1;
 @property (strong, nonatomic) CATextLayer *layer2;
+@property (strong, nonatomic) CAGradientLayer *layer3;
 
 @end
 
 @implementation FifthViewController
 
+#pragma mark - CAGradientLayer animatable properties
 
+
+- (IBAction)gradientStartPointButtonPressed
+{
+    int ix = arc4random_uniform(101);
+    int iy = arc4random_uniform(101);
+    double dx = ix/100.0;
+    double dy = iy/100.0;
+    self.layer3.startPoint = CGPointMake(dx, dy);
+}
+
+- (IBAction)gradientEndPointButtonPressed
+{
+    int ix = arc4random_uniform(101);
+    int iy = arc4random_uniform(101);
+    double dx = ix/100.0;
+    double dy = iy/100.0;
+    self.layer3.endPoint = CGPointMake(dx, dy);
+}
+
+- (IBAction)gradientLocationsButtonPressed
+{
+
+    NSMutableArray *locations = [NSMutableArray arrayWithCapacity:2];
+
+    int i0 = arc4random_uniform(34);
+    int i1 = i0 + arc4random_uniform(34);
+    int i2 = i1 + arc4random_uniform(34);
+    
+    if(i0 + i1 + i2 > 100){
+        NSLog(@"ERROR - numbers add up to more than 100");
+    }
+    
+    double r0 = i0/100.0;
+    double r1 = i1/100.0;
+    double r2 = i2/100.0;
+    
+    NSLog(@"locations are %f and %f and %f", r0, r1, r2);
+    
+    locations[0] = @(r0);
+    locations[1] = @(r1);
+    locations[1] = @(r2);
+
+    self.layer3.locations = locations;
+}
+
+- (IBAction)gradientColorsButtonPressed
+{
+    self.layer3.colors = @[(id)[self randomColor].CGColor,(id)[self randomColor].CGColor, (id)[self randomColor].CGColor];
+}
+
+- (IBAction)resetGradientLayerButtonPressed
+{
+    [self.layer3 removeFromSuperlayer];
+    self.layer3 = nil;
+    
+    self.layer3 = [CAGradientLayer new];
+    self.layer3.frame = CGRectMake(600, 500, 300, 200);
+    self.layer3.colors = @[(id)[UIColor blackColor].CGColor,
+                           (id)[UIColor redColor].CGColor];
+    
+    self.layer3.locations = nil;
+    self.layer3.endPoint = CGPointMake(0.5, 1.0);
+    [self.view.layer addSublayer: self.layer3];
+}
 
 #pragma mark - CATextLayer animatable properties
 
@@ -283,6 +349,19 @@
     self.layer2.string = @"⚽︎ Daniel🔑 ";
     [self.view.layer addSublayer: self.layer2];
     
+    
+    self.layer3 = [CAGradientLayer new];
+    self.layer3.frame = CGRectMake(600, 500, 300, 200);
+//    self.layer3.backgroundColor = [[self randomColor] CGColor];
+//    self.layer3.colors = @[[self randomColor],[self randomColor],[self randomColor]];
+    
+    self.layer3.colors = @[(id)[UIColor blackColor].CGColor,
+                 (id)[UIColor redColor].CGColor];
+    
+    self.layer3.endPoint = CGPointMake(0.5, 1.0);
+    self.layer3.locations = nil;
+    [self.view.layer addSublayer: self.layer3];
+
 }
 
 #pragma mark - utils
