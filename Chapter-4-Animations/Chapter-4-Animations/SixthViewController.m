@@ -31,6 +31,14 @@
 
 @implementation SixthViewController
 
+#pragma mark - Grouped Animations = rotate and waggle
+
+- (IBAction)rotateAndWaggleButtonPressed
+{
+    
+    
+}
+
 #pragma mark - Making a Property Animatable
 
 - (IBAction)AnimateTHicknessButtonPressed
@@ -106,6 +114,24 @@
 
 - (IBAction)wagglesGetProgressivelySmallerButtonPressed
 {
+//    NSMutableArray *values = [NSMutableArray array];
+//    [values addObject:@0.0f];
+//    int direction = 1;
+//    for (int i = 20; i < 60; i += 5, direction *= -1) { // Alternate directions.
+//        [values addObject: @(direction * M_PI/(float)i)];
+//    }
+//    [values addObject:@0.0f];
+//    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+//    anim.values = values;
+//    anim.additive = YES;
+//    anim.valueFunction = [CAValueFunction functionWithName:kCAValueFunctionRotateZ];
+//    [self.arrow addAnimation:anim forKey:nil];
+    
+    [self.arrow addAnimation: [self wagglesGetProgressivelySmaller] forKey:nil];
+}
+
+-(CAKeyframeAnimation *)wagglesGetProgressivelySmaller
+{
     NSMutableArray *values = [NSMutableArray array];
     [values addObject:@0.0f];
     int direction = 1;
@@ -117,8 +143,9 @@
     anim.values = values;
     anim.additive = YES;
     anim.valueFunction = [CAValueFunction functionWithName:kCAValueFunctionRotateZ];
-    [self.arrow addAnimation:anim forKey:nil];
+    return anim;
 }
+
 
 #pragma mark - animating frames
 - (IBAction)animateUsingCABasicAnimationButtonPressed
