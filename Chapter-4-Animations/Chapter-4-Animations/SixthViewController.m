@@ -15,11 +15,50 @@
 @property (weak, nonatomic) CompassView *compassView;
 @property (weak, nonatomic) CALayer *arrow;;
 
+@property (weak, nonatomic) IBOutlet UIView *outer;
+@property (weak, nonatomic) IBOutlet UIView *inner;
+@property CGRect originalInnerFrame;
 @end
 
 @implementation SixthViewController
 
+
+#pragma mark - animating frames
+
+- (IBAction)animateUsingUIViewAnimationButtonPressed
+{
+    NSUInteger opts = UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionAllowAnimatedContent;
+    [UIView transitionWithView:self.outer duration:1 options:opts
+                    animations:^{
+                        CGRect f = self.inner.frame;
+                        self.originalInnerFrame = f;
+                        f.size.width = self.outer.frame.size.width;
+                        f.origin.x = 0;
+                        self.inner.frame = f;
+                    } completion:nil];
+}
+
+
+- (IBAction)frameAnimationResetButtonPressed
+{
+    self.inner.frame = self.originalInnerFrame;
+}
+
 #pragma mark - waggles
+
+- (IBAction)waggle01CondensedButtonPressed
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    animation.duration = 0.05;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    animation.repeatCount = 3;
+    animation.autoreverses = YES;
+    animation.additive = YES;
+    animation.valueFunction = [CAValueFunction functionWithName:kCAValueFunctionRotateZ];
+    animation.fromValue = @(M_PI/40);
+    animation.toValue = @(-M_PI/40);
+    [self.arrow addAnimation:animation forKey:nil];
+}
 
 - (IBAction)waggle01ButtonPressed
 {
