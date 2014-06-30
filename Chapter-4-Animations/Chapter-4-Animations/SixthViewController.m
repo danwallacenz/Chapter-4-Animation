@@ -18,20 +18,54 @@
 @property (weak, nonatomic) IBOutlet UIView *outer;
 @property (weak, nonatomic) IBOutlet UIView *inner;
 @property CGRect originalInnerFrame;
+@property CGRect originalInnerBounds;
+@property CGPoint originalInnerPosition;
 @end
 
 @implementation SixthViewController
 
 
 #pragma mark - animating frames
+- (IBAction)animateUsingCABasicAnimationButtonPressed
+{
+    
+    // Set back to original state. This doesn't work very well.
+    [self reset];
+    
+  /*
+   Remember that there is no @"frame" key. To animate a layer’s frame, if both its position and bounds are to change, you must animate both.
+   */
+    
+    // Animate the bounds.
+    CABasicAnimation *boundsAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+    CGRect innerBounds = self.inner.layer.bounds;// UIViewAnimation used frame here.
+    self.originalInnerBounds = innerBounds; // save for reset later
+    innerBounds.size.width = self.outer.layer.bounds.size.width;
+    
+    self.inner.layer.bounds = innerBounds;
+    [self.inner.layer addAnimation:boundsAnimation forKey:nil];
+    
+    // Animate the position.
+    CABasicAnimation *positionAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    CGPoint innerPosition = self.inner.layer.position;// UIViewAnimation used frame here.
+    self.originalInnerPosition = innerPosition; // save for reset later
+    innerPosition.x = CGRectGetMidX(self.outer.layer.bounds);
+    self.inner.layer.position = innerPosition;
+    [self.inner.layer addAnimation:positionAnimation forKey:nil];
+
+}
 
 - (IBAction)animateUsingUIViewAnimationButtonPressed
 {
+    
+    // Set back to original state. This doesn't work very well.
+    [self reset];
+    
     NSUInteger opts = UIViewAnimationOptionTransitionFlipFromLeft | UIViewAnimationOptionAllowAnimatedContent;
     [UIView transitionWithView:self.outer duration:1 options:opts
                     animations:^{
                         CGRect f = self.inner.frame;
-                        self.originalInnerFrame = f;
+                        self.originalInnerFrame = f; // save for reset later
                         f.size.width = self.outer.frame.size.width;
                         f.origin.x = 0;
                         self.inner.frame = f;
@@ -41,8 +75,23 @@
 
 - (IBAction)frameAnimationResetButtonPressed
 {
-    self.inner.frame = self.originalInnerFrame;
+//    self.inner.frame = self.originalInnerFrame; // from UIView Animation.
+//    
+//    self.inner.layer.bounds = self.originalInnerBounds;     // from CABasic Animation.
+//    self.inner.layer.position = self.originalInnerPosition;
+    [self reset];
 }
+
+
+// This doesn't work very well.
+-(void)reset
+{
+//    self.inner.frame = self.originalInnerFrame; // from UIView Animation.
+    
+    self.inner.layer.bounds = self.originalInnerBounds;     // from CABasic Animation.
+    self.inner.layer.position = self.originalInnerPosition;
+}
+
 
 #pragma mark - waggles
 
@@ -147,6 +196,9 @@
     // Do any additional setup after loading the view.
     // Add a CompassView to to my view.  It has a CompassLayer as its layer.
     [self addACompassView];
+    
+    self.originalInnerBounds = self.inner.layer.bounds;
+    self.originalInnerPosition = self.inner.layer.position;
 }
 
 
