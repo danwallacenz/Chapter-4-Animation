@@ -1590,6 +1590,16 @@
                                     <action selector="rotate01ConsensedButtonPressed" destination="Nkr-7I-7O7" eventType="touchUpInside" id="4ZO-Qr-kIj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-9L-9uV">
+                                <rect key="frame" x="548" y="301" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Waggle 01">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="waggle01ButtonPressed" destination="Nkr-7I-7O7" eventType="touchUpInside" id="bFh-sa-9nK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
