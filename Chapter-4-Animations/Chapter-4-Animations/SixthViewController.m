@@ -20,9 +20,75 @@
 @property CGRect originalInnerFrame;
 @property CGRect originalInnerBounds;
 @property CGPoint originalInnerPosition;
+
+@property (nonatomic, strong) CALayer* sprite;
+@property (nonatomic, strong) NSArray* images;
+
 @end
 
 @implementation SixthViewController
+
+
+
+#pragma mark - Keyframe Animated Images - animating contents and position
+
+- (IBAction)RunPacmanKeyframeAnimatedImagesButtonPressed
+{
+    [self.view.layer addSublayer:self.sprite];
+    
+    CAKeyframeAnimation* anim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    anim.values = self.images;
+    anim.keyTimes = @[@0,@0.25,@0.5,@0.75,@1];
+    anim.calculationMode = kCAAnimationDiscrete;
+    anim.duration = 1.5;
+    anim.repeatCount = HUGE_VALF;
+    
+    CABasicAnimation* anim2 = [CABasicAnimation animationWithKeyPath:@"position"];
+    anim2.duration = 10;
+    anim2.toValue = [NSValue valueWithCGPoint: CGPointMake(830,517)];
+    
+    CAAnimationGroup* group = [CAAnimationGroup animation];
+    group.animations = @[anim, anim2];
+    group.duration = 10;
+    
+    [self.sprite addAnimation:group forKey:nil];
+}
+
+-(CALayer *)sprite
+{
+    if(!_sprite){
+        _sprite = [CALayer new];
+        _sprite.frame = CGRectMake(522,505,24,24);
+        _sprite.contentsScale = [UIScreen mainScreen].scale;
+        _sprite.contents = self.images[0];
+    }
+    return _sprite;
+}
+
+-(NSArray *)images
+{
+    if(!_images){
+        NSMutableArray* arr = [NSMutableArray array];
+        for (int i = 0; i < 3; i++) {
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(24,24), YES, 0);
+            [[UIImage imageNamed: @"sprites.png"]
+             drawAtPoint:CGPointMake(-(5+i)*24,-4*24)];
+            UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            [arr addObject: (id)im.CGImage];
+        }
+        for (int i = 1; i >= 0; i--) {
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(24,24), YES, 0);
+            [[UIImage imageNamed: @"sprites.png"]
+             drawAtPoint:CGPointMake(-(5+i)*24,-4*24)];
+            UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            [arr addObject: (id)im.CGImage];
+        }
+        _images = [arr copy];
+    }
+    return _images;
+}
 
 #pragma mark - waggles using Keyframe Animation
 
