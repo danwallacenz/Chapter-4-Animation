@@ -10,4 +10,5 @@
 
 @interface CompassLayer : CALayer
 @property (strong , nonatomic) CALayer *rotationLayer;
+@property (nonatomic, strong) CALayer *arrow;
 @end

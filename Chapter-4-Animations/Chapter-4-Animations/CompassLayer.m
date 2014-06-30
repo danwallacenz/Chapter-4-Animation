@@ -16,7 +16,7 @@
 
 @interface CompassLayer()
 
-@property (nonatomic, strong) CALayer *arrow;
+//@property (nonatomic, strong) CALayer *arrow;
 //@property (strong , nonatomic) CALayer *rotationLayer;
 
 @end
@@ -91,10 +91,10 @@ BOOL _didSetup;
     
     
     // uncomment next line (only) for contentsCenter and contentsGravity
-     [self performSelector:@selector(resizeArrowLayer:) withObject:arrow afterDelay:0.4];
+//     [self performSelector:@selector(resizeArrowLayer:) withObject:arrow afterDelay:0.4];
     
     // uncomment next line (only) for layer mask
-     [self performSelector:@selector(mask:) withObject:arrow];
+//     [self performSelector:@selector(mask:) withObject:arrow];
     
     self.arrow = arrow;
     
