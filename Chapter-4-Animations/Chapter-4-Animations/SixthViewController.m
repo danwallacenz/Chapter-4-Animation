@@ -9,6 +9,7 @@
 #import "SixthViewController.h"
 #import "CompassView.h"
 #import "CompassLayer.h"
+#import "LayerWithThickness.h"
 
 @interface SixthViewController ()
 
@@ -24,10 +25,21 @@
 @property (nonatomic, strong) CALayer* sprite;
 @property (nonatomic, strong) NSArray* images;
 
+@property (strong, nonatomic) LayerWithThickness *layerWithThickness;
+
 @end
 
 @implementation SixthViewController
 
+#pragma mark - Making a Property Animatable
+
+- (IBAction)AnimateTHicknessButtonPressed
+{
+    CABasicAnimation *thicknessAnimation = [CABasicAnimation animationWithKeyPath:@"thickness"];
+    thicknessAnimation.toValue = [NSNumber numberWithFloat:10.0];
+    thicknessAnimation.autoreverses = YES;
+    [self.layerWithThickness addAnimation:thicknessAnimation forKey:nil];
+}
 
 
 #pragma mark - Keyframe Animated Images - animating contents and position
@@ -158,10 +170,6 @@
 
 - (IBAction)frameAnimationResetButtonPressed
 {
-//    self.inner.frame = self.originalInnerFrame; // from UIView Animation.
-//    
-//    self.inner.layer.bounds = self.originalInnerBounds;     // from CABasic Animation.
-//    self.inner.layer.position = self.originalInnerPosition;
     [self reset];
 }
 
@@ -169,7 +177,7 @@
 // This doesn't work very well.
 -(void)reset
 {
-//    self.inner.frame = self.originalInnerFrame; // from UIView Animation.
+    self.inner.frame = self.originalInnerFrame; // from UIView Animation.
     
     self.inner.layer.bounds = self.originalInnerBounds;     // from CABasic Animation.
     self.inner.layer.position = self.originalInnerPosition;
@@ -282,8 +290,17 @@
     
     self.originalInnerBounds = self.inner.layer.bounds;
     self.originalInnerPosition = self.inner.layer.position;
+    
+    [self addALayerWithThickness];
 }
-
+-(void)addALayerWithThickness
+{
+    self.layerWithThickness =  [[LayerWithThickness alloc] init];
+    self.layerWithThickness.frame = CGRectMake(530,600,100,100);
+    self.layerWithThickness.contentsScale = [UIScreen mainScreen].scale;
+    [self.view.layer addSublayer: self.layerWithThickness];
+    [self.layerWithThickness setNeedsDisplay];
+}
 
 -(void)addACompassView
 {
