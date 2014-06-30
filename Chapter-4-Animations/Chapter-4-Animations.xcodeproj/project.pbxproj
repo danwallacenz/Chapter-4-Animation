@@ -157,6 +157,14 @@
 			name = layers;
 			sourceTree = "<group>";
 		};
+		CBAA80E11960F7AD00C0ED13 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CBF9601319592F9D00BE37A1 /* Main.storyboard */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
 		CBF95FF519592F9D00BE37A1 = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +198,8 @@
 		CBF9600719592F9D00BE37A1 /* Chapter-4-Animations */ = {
 			isa = PBXGroup;
 			children = (
+				CBAA80E11960F7AD00C0ED13 /* storyboard */,
 				CBAA80DA1960EE8D00C0ED13 /* layers */,
-				CBF9601319592F9D00BE37A1 /* Main.storyboard */,
 				CBAA80D91960EE7B00C0ED13 /* views */,
 				CBAA80D81960EE6600C0ED13 /* view controllers */,
 				CBF9601C19592F9D00BE37A1 /* Images.xcassets */,

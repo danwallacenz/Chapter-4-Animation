@@ -13,12 +13,20 @@
 @interface SixthViewController ()
 
 @property (weak, nonatomic) CompassView *compassView;
+@property (weak, nonatomic) CALayer *arrow;;
 
 @end
 
 @implementation SixthViewController
 
 #pragma mark - rotations
+
+
+- (IBAction)rotate01ConsensedButtonPressed
+{
+    [CATransaction setDisableActions:YES];
+    
+}
 
 - (IBAction)rotate01ButtonPressed
 {
@@ -30,20 +38,14 @@
      */
     
     // Capture the start and end values.
-    CALayer *arrow;
-    CATransform3D startValue;
-    if([self.compassView.layer isKindOfClass:[CompassLayer class]]){
-        CompassLayer *compassLayer = (CompassLayer *)self.compassView.layer;
-        arrow = compassLayer.arrow;
-        startValue = arrow.transform;
-    }
+    CATransform3D startValue = self.arrow.transform;
     CATransform3D endValue = CATransform3DRotate(startValue, M_PI/4.0, 0, 0, 1);
     
     //Change the layer, without implicit animation.
     [CATransaction setDisableActions:YES];
-    arrow.transform = endValue;
+    self.arrow.transform = endValue;
     
-    // Contstruct the explicit animation.
+    // Construct the explicit animation.
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
     animation.duration = 0.8;
     CAMediaTimingFunction *clunk = [CAMediaTimingFunction functionWithControlPoints:.9 :.1 :.7 :.9];
@@ -52,10 +54,20 @@
     animation.toValue = [NSValue valueWithCATransform3D:endValue];
     
     // Ask for the explicit animation.
-    [arrow addAnimation:animation forKey:nil];
-
+    [self.arrow addAnimation:animation forKey:nil];
 }
 
+
+-(CALayer *)arrow
+{
+    if (!_arrow) {
+        if([self.compassView.layer isKindOfClass:[CompassLayer class]]){
+            CompassLayer *compassLayer = (CompassLayer *)self.compassView.layer;
+            _arrow = compassLayer.arrow;;
+        }
+    }
+    return _arrow;
+}
 
 #pragma mark - UIViewController
 
@@ -73,6 +85,11 @@
     // Add a CompassView to to my view.  It has a CompassLayer as its layer.
     CompassView *compassView = [[CompassView alloc] initWithFrame:CGRectMake(100, 100, 400, 400)];
     [self.view addSubview: compassView];
-    self.compassView = compassView; // for zPosition changes later.
+    self.compassView = compassView;
+
+    if([self.compassView.layer isKindOfClass:[CompassLayer class]]){
+        CompassLayer *compassLayer = (CompassLayer *)self.compassView.layer;
+        self.arrow = compassLayer.arrow;
+    }
 }
 @end
