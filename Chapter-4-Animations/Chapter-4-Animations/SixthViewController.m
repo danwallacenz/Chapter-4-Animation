@@ -25,6 +25,12 @@
 - (IBAction)rotate01ConsensedButtonPressed
 {
     [CATransaction setDisableActions:YES];
+    self.arrow.transform = CATransform3DRotate(self.arrow.transform, M_PI/4.0, 0, 0, 1);
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    animation.duration = 0.8;
+    CAMediaTimingFunction *clunk = [CAMediaTimingFunction functionWithControlPoints:.9 :.1 :.7 :.9];
+    animation.timingFunction = clunk;
+    [self.arrow addAnimation:animation forKey:nil];
     
 }
 
