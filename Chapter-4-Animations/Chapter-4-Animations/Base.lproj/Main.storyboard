@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954" y="100"/>
+            <point key="canvasLocation" x="2986" y="-1156"/>
         </scene>
         <!--Second View Controller - View Animations-->
         <scene sceneID="wg7-f3-ORb">
@@ -639,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="983"/>
+            <point key="canvasLocation" x="2993" y="-273"/>
         </scene>
         <!--Third View Controller - Springing & Keyframes-->
         <scene sceneID="YeL-xa-SLn">
@@ -915,19 +915,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ag-Pm-eCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="1879"/>
+            <point key="canvasLocation" x="2993" y="623"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Nkr-7I-7O7" kind="relationship" relationship="viewControllers" id="IcX-hs-wjc"/>
                         <segue destination="CE3-Xk-9yt" kind="relationship" relationship="viewControllers" id="kA3-vC-vmO"/>
                         <segue destination="h1d-hC-60A" kind="relationship" relationship="viewControllers" id="ePA-bl-3VD"/>
                         <segue destination="0JT-SL-9UY" kind="relationship" relationship="viewControllers" id="Zbj-7k-50y"/>
@@ -937,7 +939,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023" y="718"/>
+            <point key="canvasLocation" x="1871" y="766"/>
         </scene>
         <!--Fifth View Controller - Implicit Layer Animation-->
         <scene sceneID="cB6-L0-CY0">
@@ -1445,7 +1447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLP-iD-0Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="3611"/>
+            <point key="canvasLocation" x="2993" y="2355"/>
         </scene>
         <!--Fourth View Controller - Transitions-->
         <scene sceneID="yCn-mw-1q6">
@@ -1554,7 +1556,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueu-yw-Spz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="2753"/>
+            <point key="canvasLocation" x="2993" y="1497"/>
+        </scene>
+        <!--Sixth View Controller - Core Animation-->
+        <scene sceneID="et4-1d-W0T">
+            <objects>
+                <viewController id="Nkr-7I-7O7" customClass="SixthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NUf-ag-AZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="hDr-ZY-eo0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i9P-8S-VcP">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Core Animation" id="h3D-sb-X9i"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bF-gw-iy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="3251"/>
         </scene>
     </scenes>
     <resources>

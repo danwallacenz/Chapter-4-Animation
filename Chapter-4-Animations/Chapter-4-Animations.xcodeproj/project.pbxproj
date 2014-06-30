@@ -13,6 +13,9 @@
 		CB0C2579195E9E0C00053304 /* smileyiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0C2577195E9E0C00053304 /* smileyiPhone.png */; };
 		CB0C257C195EA18800053304 /* RectangleOrEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */; };
 		CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257E195F9F2800053304 /* FifthViewController.m */; };
+		CBAA80D71960E07200C0ED13 /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80D61960E07200C0ED13 /* SixthViewController.m */; };
+		CBAA80DD1960EEB800C0ED13 /* CompassLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DC1960EEB800C0ED13 /* CompassLayer.m */; };
+		CBAA80E01960EECA00C0ED13 /* CompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DF1960EECA00C0ED13 /* CompassView.m */; };
 		CBF9600219592F9D00BE37A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600119592F9D00BE37A1 /* Foundation.framework */; };
 		CBF9600419592F9D00BE37A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600319592F9D00BE37A1 /* CoreGraphics.framework */; };
 		CBF9600619592F9D00BE37A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF9600519592F9D00BE37A1 /* UIKit.framework */; };
@@ -52,6 +55,12 @@
 		CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleOrEllipseView.m; sourceTree = "<group>"; };
 		CB0C257D195F9F2800053304 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FifthViewController.h; path = ../FifthViewController.h; sourceTree = "<group>"; };
 		CB0C257E195F9F2800053304 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = ../FifthViewController.m; sourceTree = "<group>"; };
+		CBAA80D51960E07200C0ED13 /* SixthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewController.h; sourceTree = "<group>"; };
+		CBAA80D61960E07200C0ED13 /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
+		CBAA80DB1960EEB800C0ED13 /* CompassLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassLayer.h; sourceTree = "<group>"; };
+		CBAA80DC1960EEB800C0ED13 /* CompassLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassLayer.m; sourceTree = "<group>"; };
+		CBAA80DE1960EECA00C0ED13 /* CompassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassView.h; sourceTree = "<group>"; };
+		CBAA80DF1960EECA00C0ED13 /* CompassView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassView.m; sourceTree = "<group>"; };
 		CBF95FFE19592F9D00BE37A1 /* Chapter-4-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chapter-4-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF9600119592F9D00BE37A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CBF9600319592F9D00BE37A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +118,45 @@
 			path = smiley.imageset;
 			sourceTree = "<group>";
 		};
+		CBAA80D81960EE6600C0ED13 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBAA80D51960E07200C0ED13 /* SixthViewController.h */,
+				CBAA80D61960E07200C0ED13 /* SixthViewController.m */,
+				CB0C257D195F9F2800053304 /* FifthViewController.h */,
+				CB0C257E195F9F2800053304 /* FifthViewController.m */,
+				CB0C2572195E9C0900053304 /* FourthViewController.h */,
+				CB0C2573195E9C0900053304 /* FourthViewController.m */,
+				CB0C256F195D754F00053304 /* ThirdViewController.h */,
+				CB0C2570195D754F00053304 /* ThirdViewController.m */,
+				CBF9601919592F9D00BE37A1 /* SecondViewController.h */,
+				CBF9601A19592F9D00BE37A1 /* SecondViewController.m */,
+				CBF9601619592F9D00BE37A1 /* FirstViewController.h */,
+				CBF9601719592F9D00BE37A1 /* FirstViewController.m */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		CBAA80D91960EE7B00C0ED13 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CBAA80DE1960EECA00C0ED13 /* CompassView.h */,
+				CBAA80DF1960EECA00C0ED13 /* CompassView.m */,
+				CB0C257A195EA18800053304 /* RectangleOrEllipseView.h */,
+				CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		CBAA80DA1960EE8D00C0ED13 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				CBAA80DB1960EEB800C0ED13 /* CompassLayer.h */,
+				CBAA80DC1960EEB800C0ED13 /* CompassLayer.m */,
+			);
+			name = layers;
+			sourceTree = "<group>";
+		};
 		CBF95FF519592F9D00BE37A1 = {
 			isa = PBXGroup;
 			children = (
@@ -142,19 +190,10 @@
 		CBF9600719592F9D00BE37A1 /* Chapter-4-Animations */ = {
 			isa = PBXGroup;
 			children = (
+				CBAA80DA1960EE8D00C0ED13 /* layers */,
 				CBF9601319592F9D00BE37A1 /* Main.storyboard */,
-				CB0C257D195F9F2800053304 /* FifthViewController.h */,
-				CB0C257E195F9F2800053304 /* FifthViewController.m */,
-				CB0C257A195EA18800053304 /* RectangleOrEllipseView.h */,
-				CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */,
-				CB0C2572195E9C0900053304 /* FourthViewController.h */,
-				CB0C2573195E9C0900053304 /* FourthViewController.m */,
-				CB0C256F195D754F00053304 /* ThirdViewController.h */,
-				CB0C2570195D754F00053304 /* ThirdViewController.m */,
-				CBF9601919592F9D00BE37A1 /* SecondViewController.h */,
-				CBF9601A19592F9D00BE37A1 /* SecondViewController.m */,
-				CBF9601619592F9D00BE37A1 /* FirstViewController.h */,
-				CBF9601719592F9D00BE37A1 /* FirstViewController.m */,
+				CBAA80D91960EE7B00C0ED13 /* views */,
+				CBAA80D81960EE6600C0ED13 /* view controllers */,
 				CBF9601C19592F9D00BE37A1 /* Images.xcassets */,
 				CB0C2575195E9E0C00053304 /* smiley.imageset */,
 				CBF960391959702900BE37A1 /* Pacman.xcassets */,
@@ -300,8 +339,11 @@
 				CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */,
 				CB0C2574195E9C0900053304 /* FourthViewController.m in Sources */,
 				CBF9601B19592F9D00BE37A1 /* SecondViewController.m in Sources */,
+				CBAA80E01960EECA00C0ED13 /* CompassView.m in Sources */,
 				CB0C2571195D754F00053304 /* ThirdViewController.m in Sources */,
+				CBAA80DD1960EEB800C0ED13 /* CompassLayer.m in Sources */,
 				CB0C257C195EA18800053304 /* RectangleOrEllipseView.m in Sources */,
+				CBAA80D71960E07200C0ED13 /* SixthViewController.m in Sources */,
 				CBF9601219592F9D00BE37A1 /* AppDelegate.m in Sources */,
 				CBF9601819592F9D00BE37A1 /* FirstViewController.m in Sources */,
 				CBF9600E19592F9D00BE37A1 /* main.m in Sources */,
