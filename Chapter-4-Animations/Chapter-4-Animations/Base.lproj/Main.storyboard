@@ -1728,6 +1728,28 @@
                                     <action selector="rotateAndWaggleButtonPressed" destination="Nkr-7I-7O7" eventType="touchUpInside" id="fBK-sM-6Yg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sequential animation of the same property (transform - rotateZ)" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="1fP-Hb-qhq">
+                                <rect key="frame" x="787" y="104" width="243" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simultaneous animations of different properties (transform - rotateY &amp; position)" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="2q1-za-URC">
+                                <rect key="frame" x="787" y="267" width="243" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBZ-cv-aM7">
+                                <rect key="frame" x="787" y="377" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sail Her">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sailHerButtonPressed:" destination="Nkr-7I-7O7" eventType="touchUpInside" id="gNK-rk-v5S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1741,6 +1763,7 @@
                     <connections>
                         <outlet property="inner" destination="u0h-bb-bsN" id="cCp-Wg-3v2"/>
                         <outlet property="outer" destination="vgk-4g-K38" id="5bb-YL-9Rd"/>
+                        <outlet property="sailHerButton" destination="GBZ-cv-aM7" id="lqT-NX-vsv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bF-gw-iy8" userLabel="First Responder" sceneMemberID="firstResponder"/>

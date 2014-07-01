@@ -27,9 +27,80 @@
 
 @property (strong, nonatomic) LayerWithThickness *layerWithThickness;
 
+@property (strong, nonatomic) UIView *boat;
+@property (weak, nonatomic) IBOutlet UIButton *sailHerButton;
+
 @end
 
 @implementation SixthViewController
+
+
+#pragma mark - Sail the boat - three grouped animations.
+
+- (IBAction)sailHerButtonPressed:(UIButton *)sender
+{
+    sender.enabled = NO;
+    [self.boat removeFromSuperview];
+    self.boat = nil;
+    [self addTheBoat];
+    
+    // The curving path animation.
+    CGFloat h = 250;
+    CGFloat v = 75;
+    CGMutablePathRef path = CGPathCreateMutable();
+    int leftRight = 1;
+    CGPoint next = self.boat.layer.position;
+    CGPoint pos;
+    CGPathMoveToPoint(path, nil, next.x, next.y);
+    for (int i = 0; i < 4; i++) {
+        pos = next;
+        leftRight *= -1;
+        next = CGPointMake(pos.x + h * leftRight, pos.y + v);
+        CGPathAddCurveToPoint(path, nil, pos.x, pos.y + 30, next.x, next.y - 30, next.x, next.y);
+    }
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    pathAnimation.path = path;
+    pathAnimation.calculationMode = kCAAnimationPaced;
+    
+    
+    // Reversal animation.
+    NSArray *reversals = @[@0.0f, @M_PI, @0.0f, @M_PI];
+    CAKeyframeAnimation *reversalsAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    reversalsAnimation.values = reversals;
+    reversalsAnimation.valueFunction = [CAValueFunction functionWithName: kCAValueFunctionRotateY];
+    reversalsAnimation.calculationMode = kCAAnimationDiscrete;
+    
+    
+    // Rocking the boat animation.
+    NSArray *pitches = @[@0.0f,
+                         @(M_PI/60.0),
+                         @0.0f,
+                         @(-M_PI/60.0),
+                         @0.0f];
+    CAKeyframeAnimation *pitchingAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    pitchingAnimation.values = pitches;
+    pitchingAnimation.repeatCount = HUGE_VALF;
+    pitchingAnimation.duration = 0.5;
+    pitchingAnimation.additive = YES;
+    pitchingAnimation.valueFunction = [CAValueFunction functionWithName:kCAValueFunctionRotateZ];
+    
+    
+    // Combine the three animations into a group.
+    CAAnimationGroup *sailAway = [CAAnimationGroup animation];
+    sailAway.animations = @[pathAnimation, reversalsAnimation, pitchingAnimation];
+    sailAway.duration = 8;
+    
+     [CATransaction setCompletionBlock:^{
+         sender.enabled = YES;
+     }];
+    
+    [self.boat.layer addAnimation:sailAway forKey:nil];
+    [CATransaction setDisableActions:YES];
+    
+    // Change model layer's position to match the animation's (presentation layer) final position.
+    self.boat.layer.position = next;
+}
+
 
 #pragma mark - Grouped Animations = rotate and waggle
 
@@ -121,19 +192,6 @@
 
 - (IBAction)wagglesGetProgressivelySmallerButtonPressed
 {
-//    NSMutableArray *values = [NSMutableArray array];
-//    [values addObject:@0.0f];
-//    int direction = 1;
-//    for (int i = 20; i < 60; i += 5, direction *= -1) { // Alternate directions.
-//        [values addObject: @(direction * M_PI/(float)i)];
-//    }
-//    [values addObject:@0.0f];
-//    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-//    anim.values = values;
-//    anim.additive = YES;
-//    anim.valueFunction = [CAValueFunction functionWithName:kCAValueFunctionRotateZ];
-//    [self.arrow addAnimation:anim forKey:nil];
-    
     [self.arrow addAnimation: [self wagglesGetProgressivelySmaller] forKey:nil];
 }
 
@@ -258,24 +316,15 @@
 
 - (IBAction)rotate01ConsensedButtonPressed
 {
-    /*
-     Once you know the full form, you will find that in many cases it can be condensed. For example, when fromValue and toValue are not set, the former and current values of the property are used automatically. (This magic is possible because the presentation layer still has the former value of the property, while the layer itself has the new value.) Thus, in this case there was no need to set them, and so there was no need to capture the start and end values beforehand either.
-     */
-    
-//    [CATransaction setDisableActions:YES];
-//    self.arrow.transform = CATransform3DRotate(self.arrow.transform, M_PI/4.0, 0, 0, 1);
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-//    animation.duration = 0.8;
-//    CAMediaTimingFunction *clunk = [CAMediaTimingFunction functionWithControlPoints:.9 :.1 :.7 :.9];
-//    animation.timingFunction = clunk;
-//    [self.arrow addAnimation: animation forKey:nil];
-    
     [self.arrow addAnimation:[self rotation] forKey:nil];
-    
 }
 
 -(CABasicAnimation *) rotation
 {
+    /*
+     Once you know the full form, you will find that in many cases it can be condensed. For example, when fromValue and toValue are not set, the former and current values of the property are used automatically. (This magic is possible because the presentation layer still has the former value of the property, while the layer itself has the new value.) Thus, in this case there was no need to set them, and so there was no need to capture the start and end values beforehand either.
+     */
+    
     [CATransaction setDisableActions:YES];
     self.arrow.transform = CATransform3DRotate(self.arrow.transform, M_PI/4.0, 0, 0, 1);
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
@@ -332,7 +381,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     // Add a CompassView to to my view.  It has a CompassLayer as its layer.
     [self addACompassView];
     
@@ -340,7 +389,22 @@
     self.originalInnerPosition = self.inner.layer.position;
     
     [self addALayerWithThickness];
+    
+    [self addTheBoat];
 }
+
+#pragma mark - Add layers.
+
+
+-(void)addTheBoat
+{
+//    self.boat = [[UIView alloc] initWithFrame:CGRectMake(254,28,56,38)];
+    self.boat = [[UIView alloc] initWithFrame:CGRectMake(854,360,56,38)];
+    [self.view addSubview: self.boat];
+    self.boat.layer.contents = (id)[[UIImage imageNamed:@"boat.gif"] CGImage];
+    self.boat.layer.contentsGravity = kCAGravityResizeAspectFill;
+}
+
 -(void)addALayerWithThickness
 {
     self.layerWithThickness =  [[LayerWithThickness alloc] init];
