@@ -35,8 +35,15 @@
 
 - (IBAction)rotateAndWaggleButtonPressed
 {
-    
-    
+    CAAnimation *rotation = [self rotation];
+    CAAnimation *waggle = [self wagglesGetProgressivelySmaller];
+    waggle.beginTime = rotation.duration;
+    waggle.duration = 0.25;
+
+    CAAnimationGroup *rotateAndWaggle = [CAAnimationGroup animation];
+    rotateAndWaggle.animations = @[rotation, waggle];
+    rotateAndWaggle.duration = rotation.duration + waggle.duration;
+    [self.arrow addAnimation: rotateAndWaggle forKey:nil];
 }
 
 #pragma mark - Making a Property Animatable
@@ -255,14 +262,28 @@
      Once you know the full form, you will find that in many cases it can be condensed. For example, when fromValue and toValue are not set, the former and current values of the property are used automatically. (This magic is possible because the presentation layer still has the former value of the property, while the layer itself has the new value.) Thus, in this case there was no need to set them, and so there was no need to capture the start and end values beforehand either.
      */
     
+//    [CATransaction setDisableActions:YES];
+//    self.arrow.transform = CATransform3DRotate(self.arrow.transform, M_PI/4.0, 0, 0, 1);
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+//    animation.duration = 0.8;
+//    CAMediaTimingFunction *clunk = [CAMediaTimingFunction functionWithControlPoints:.9 :.1 :.7 :.9];
+//    animation.timingFunction = clunk;
+//    [self.arrow addAnimation: animation forKey:nil];
+    
+    [self.arrow addAnimation:[self rotation] forKey:nil];
+    
+}
+
+-(CABasicAnimation *) rotation
+{
     [CATransaction setDisableActions:YES];
     self.arrow.transform = CATransform3DRotate(self.arrow.transform, M_PI/4.0, 0, 0, 1);
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
     animation.duration = 0.8;
     CAMediaTimingFunction *clunk = [CAMediaTimingFunction functionWithControlPoints:.9 :.1 :.7 :.9];
     animation.timingFunction = clunk;
-    [self.arrow addAnimation:animation forKey:nil];
     
+    return animation;
 }
 
 - (IBAction)rotate01ButtonPressed
