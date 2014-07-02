@@ -30,9 +30,46 @@
 @property (strong, nonatomic) UIView *boat;
 @property (weak, nonatomic) IBOutlet UIButton *sailHerButton;
 
+@property (strong, nonatomic) CALayer *pushTransitionLayer;
+@property (strong, nonatomic) UIView *pushTransitionView;
+
 @end
 
 @implementation SixthViewController
+
+#pragma mark - Transitions.
+
+- (IBAction)pushButtonPressed
+{
+    CATransition *pushTransition= [CATransition animation];
+    pushTransition.type = kCATransitionPush;
+    pushTransition.subtype = kCATransitionFromBottom;
+    pushTransition.duration = 2;
+    [CATransaction setDisableActions: YES];
+    
+    self.pushTransitionLayer.contents = (id)[UIImage imageNamed: @"SmileyiPhone"].CGImage;
+    [self.pushTransitionLayer addAnimation:pushTransition forKey:nil];
+}
+
+-(void)addPushTransitionLayer
+{
+    // Add a view.
+    self.pushTransitionView = [[UIView alloc] initWithFrame:CGRectMake(540, 80, 100, 100)];
+    [self.view addSubview:self.pushTransitionView];
+    
+    // Configure its layer
+    self.pushTransitionView.layer.borderWidth = 2.0;
+    self.pushTransitionView.layer.masksToBounds = YES;
+    
+    // Create a sub layer with an image.
+    self.pushTransitionLayer = [CALayer layer];
+    self.pushTransitionLayer.frame = self.pushTransitionView.layer.bounds;
+    self.pushTransitionLayer.contents = (id)[UIImage imageNamed:@"Mars"].CGImage;
+    self.pushTransitionLayer.contentsGravity = kCAGravityResizeAspectFill;
+
+    // Add the sub layer to the vire's layer.
+    [self.pushTransitionView.layer addSublayer: self.pushTransitionLayer];
+}
 
 
 #pragma mark - Sail the boat - three grouped animations.
@@ -391,9 +428,12 @@
     [self addALayerWithThickness];
     
     [self addTheBoat];
+    
+    [self addPushTransitionLayer];
 }
 
 #pragma mark - Add layers.
+
 
 
 -(void)addTheBoat
