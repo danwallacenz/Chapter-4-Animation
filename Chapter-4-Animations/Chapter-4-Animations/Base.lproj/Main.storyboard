@@ -929,6 +929,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Iqm-Ez-1qe" kind="relationship" relationship="viewControllers" id="LDm-of-rlQ"/>
                         <segue destination="Nkr-7I-7O7" kind="relationship" relationship="viewControllers" id="IcX-hs-wjc"/>
                         <segue destination="CE3-Xk-9yt" kind="relationship" relationship="viewControllers" id="kA3-vC-vmO"/>
                         <segue destination="h1d-hC-60A" kind="relationship" relationship="viewControllers" id="ePA-bl-3VD"/>
@@ -1557,6 +1558,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueu-yw-Spz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2993" y="1497"/>
+        </scene>
+        <!--Seventh View Controller - Emitter Layers-->
+        <scene sceneID="Rez-rd-wXf">
+            <objects>
+                <viewController id="Iqm-Ez-1qe" customClass="SeventhViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xaC-MI-MeM"/>
+                        <viewControllerLayoutGuide type="bottom" id="HoW-D8-JuH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yxR-yl-H3l">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA5-cz-Peq">
+                                <rect key="frame" x="654" y="20" width="350" height="728"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthrate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q88-TT-RYO">
+                                        <rect key="frame" x="20" y="20" width="66" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="0R7-dm-yp3">
+                                        <rect key="frame" x="92" y="16" width="180" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="176" id="9zl-sW-KIY"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="birthRateSliderValueChanged:" destination="Iqm-Ez-1qe" eventType="valueChanged" id="B8K-9j-Uba"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWg-e3-gny">
+                                        <rect key="frame" x="278" y="20" width="52" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ORq-J1-cSc"/>
+                                            <constraint firstAttribute="width" constant="52" id="mBp-IH-5Yt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.090196080505847931" green="0.69411766529083252" blue="0.69019609689712524" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="2eE-Up-crK"/>
+                                    <constraint firstItem="q88-TT-RYO" firstAttribute="top" secondItem="aA5-cz-Peq" secondAttribute="top" constant="20" id="473-ny-HKX"/>
+                                    <constraint firstAttribute="trailing" secondItem="RWg-e3-gny" secondAttribute="trailing" constant="20" id="BSG-AW-tWk"/>
+                                    <constraint firstItem="RWg-e3-gny" firstAttribute="leading" secondItem="0R7-dm-yp3" secondAttribute="trailing" constant="8" id="Rrw-h9-a1F"/>
+                                    <constraint firstItem="0R7-dm-yp3" firstAttribute="top" secondItem="aA5-cz-Peq" secondAttribute="top" constant="16" id="hL4-2N-BZr"/>
+                                    <constraint firstItem="RWg-e3-gny" firstAttribute="top" secondItem="aA5-cz-Peq" secondAttribute="top" constant="20" id="nDy-QO-2W1"/>
+                                    <constraint firstItem="q88-TT-RYO" firstAttribute="leading" secondItem="aA5-cz-Peq" secondAttribute="leading" constant="20" id="v0h-JW-wdn"/>
+                                    <constraint firstItem="0R7-dm-yp3" firstAttribute="leading" secondItem="q88-TT-RYO" secondAttribute="trailing" constant="8" id="vVP-dd-ifq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aA5-cz-Peq" firstAttribute="top" secondItem="xaC-MI-MeM" secondAttribute="bottom" id="3Cz-Ww-5Bh"/>
+                            <constraint firstItem="HoW-D8-JuH" firstAttribute="top" secondItem="aA5-cz-Peq" secondAttribute="bottom" constant="-29" id="Caa-R9-z3y"/>
+                            <constraint firstAttribute="trailing" secondItem="aA5-cz-Peq" secondAttribute="trailing" constant="20" id="Ko8-WH-gZD"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Emitter Layers" id="4tQ-WY-wqj"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="birthRateSlider" destination="0R7-dm-yp3" id="HXl-zc-jnq"/>
+                        <outlet property="birthRateSliderValueLabel" destination="RWg-e3-gny" id="cbm-2T-6Kp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdX-Lt-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2986" y="4125"/>
         </scene>
         <!--Sixth View Controller - Core Animation-->
         <scene sceneID="et4-1d-W0T">
