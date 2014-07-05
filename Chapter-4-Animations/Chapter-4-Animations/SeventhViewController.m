@@ -79,14 +79,31 @@
 
 -(CAEmitterLayer *)emitterLayer3
 {
-    return  [self emitterLayerAtPoint: CGPointMake(30, 400) WithCells: @[[self waterfallGrayCircleImageCell]]];
+    CAEmitterLayer *waterfallEmitter = [self emitterLayerAtPoint: CGPointMake(30, 400) WithCells: @[[self waterfallGrayCircleImageCell]]];
+    return  waterfallEmitter;
 }
 
 -(CAEmitterLayer *)emitterLayer4
 {
-    CAEmitterLayer *waterfall = [self emitterLayerAtPoint: CGPointMake(230, 100) WithCells: @[[self waterfallGrayCircleImageCell]]];
-    [waterfall setValue:@2.0f forKeyPath :@"emitterCells.circle.greenSpeed"];
-    return waterfall;
+    CAEmitterCell *cellWithDroplets = [self waterfallWithDroplets];
+    CAEmitterLayer *waterfallEmitter = [self emitterLayerAtPoint: CGPointMake(330, 100) WithCells: @[cellWithDroplets]];
+
+    waterfallEmitter.emitterPosition = CGPointMake(330, 125);
+    waterfallEmitter.emitterSize = CGSizeMake(100, 100);
+    waterfallEmitter.emitterShape = kCAEmitterLayerLine;
+    waterfallEmitter.emitterMode = kCAEmitterLayerOutline;
+    
+    cellWithDroplets.emissionLongitude = 3 * M_PI/4;
+    
+    NSString *key = @"emitterCells.circle.greenSpeed";
+    CABasicAnimation *ba = [CABasicAnimation animationWithKeyPath:key];
+    ba.fromValue = @-1.0f;
+    ba.toValue = @3.0f;
+    ba.duration = 4;
+    ba.autoreverses = YES;
+    ba.repeatCount = HUGE_VALF;
+    [waterfallEmitter addAnimation:ba forKey:nil];
+    return waterfallEmitter;
 }
 
 -(CAEmitterLayer *)emitterLayerAtPoint: (CGPoint)point WithCells: (NSArray *)cells
@@ -99,6 +116,29 @@
     
     emitterLayer.emitterCells = cells;
     return emitterLayer;
+}
+
+-(CAEmitterCell * )waterfallWithDroplets
+{
+    CAEmitterCell *waterfallCell = [self waterfallGrayCircleImageCell];
+    
+    // A CAEmitterCell can itself function as an emitter.
+    CAEmitterCell *dropletCell = [CAEmitterCell emitterCell];
+    waterfallCell.emitterCells = @[dropletCell];
+    dropletCell.contents = (id)[self grayCircle].CGImage;
+    dropletCell.emissionRange = M_PI;
+    dropletCell.birthRate = 200;
+    dropletCell.lifetime = 0.4;
+    dropletCell.velocity = 200;
+    dropletCell.scale = 0.2;
+    // Emit droplets fromm the top.
+//    dropletCell.beginTime = .04;
+//    dropletCell.duration = .2;
+    // Emit droplets fromm the bottom.
+    dropletCell.beginTime = .7;
+    dropletCell.duration = .8;
+ 
+    return waterfallCell;
 }
 
 -(CAEmitterCell *)waterfallGrayCircleImageCell
