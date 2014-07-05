@@ -1587,9 +1587,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="176" id="9zl-sW-KIY"/>
                                         </constraints>
-                                        <connections>
-                                            <action selector="birthRateSliderValueChanged:" destination="Iqm-Ez-1qe" eventType="valueChanged" id="B8K-9j-Uba"/>
-                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWg-e3-gny">
                                         <rect key="frame" x="278" y="20" width="52" height="21"/>
@@ -1625,10 +1622,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Emitter Layers" id="4tQ-WY-wqj"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="birthRateSlider" destination="0R7-dm-yp3" id="HXl-zc-jnq"/>
-                        <outlet property="birthRateSliderValueLabel" destination="RWg-e3-gny" id="cbm-2T-6Kp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdX-Lt-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
