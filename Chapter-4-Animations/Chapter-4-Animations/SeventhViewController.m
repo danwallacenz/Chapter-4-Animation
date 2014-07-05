@@ -9,9 +9,12 @@
 #import "SeventhViewController.h"
 
 @interface SeventhViewController ()
-@property (strong, nonatomic) CAEmitterLayer *emitterLayer1;
 
+@property (strong, nonatomic) CAEmitterLayer *emitterLayer1;
 @property (strong, nonatomic) CAEmitterLayer *emitterLayer2;
+@property (strong, nonatomic) CAEmitterLayer *emitterLayer3;
+@property (strong, nonatomic) CAEmitterLayer *emitterLayer4;
+
 
 //@property (strong, nonatomic) CAEmitterCell *grayCircleImageCell;
 
@@ -52,21 +55,38 @@
      self.emitterLayer2 = [self emitterLayer2];
     [self.view.layer addSublayer: self.emitterLayer2];
     
+    self.emitterLayer3 = [self emitterLayer3];
+    [self.view.layer addSublayer: self.emitterLayer3];
+    
+    self.emitterLayer4 = [self emitterLayer4];
+    [self.view.layer addSublayer: self.emitterLayer4];
     
 //    self.birthRateSliderValueLabel.text = [NSString stringWithFormat:@"%0.f", self.birthRateSlider.value];
 }
 
 
 #pragma mark - setup
+
 -(CAEmitterLayer *)emitterLayer1
 {
     return [self emitterLayerAtPoint: CGPointMake(30, 100) WithCells: @[[self grayCircleImageCell]]];
 }
 
-
 -(CAEmitterLayer *)emitterLayer2
 {
-    return [self emitterLayerAtPoint: CGPointMake(30, 200) WithCells: @[[self firehoseGrayCircleImageCell]]];
+    return [self emitterLayerAtPoint: CGPointMake(30, 300) WithCells: @[[self firehoseGrayCircleImageCell]]];
+}
+
+-(CAEmitterLayer *)emitterLayer3
+{
+    return  [self emitterLayerAtPoint: CGPointMake(30, 400) WithCells: @[[self waterfallGrayCircleImageCell]]];
+}
+
+-(CAEmitterLayer *)emitterLayer4
+{
+    CAEmitterLayer *waterfall = [self emitterLayerAtPoint: CGPointMake(230, 100) WithCells: @[[self waterfallGrayCircleImageCell]]];
+    [waterfall setValue:@2.0f forKeyPath :@"emitterCells.circle.greenSpeed"];
+    return waterfall;
 }
 
 -(CAEmitterLayer *)emitterLayerAtPoint: (CGPoint)point WithCells: (NSArray *)cells
@@ -81,6 +101,26 @@
     return emitterLayer;
 }
 
+-(CAEmitterCell *)waterfallGrayCircleImageCell
+{
+    
+    CAEmitterCell *cell = [self firehoseGrayCircleImageCell];
+    
+    cell.xAcceleration = -40;
+    cell.yAcceleration = 200;
+    
+    cell.lifetimeRange = .4;
+    cell.velocityRange = 20;
+    cell.scaleRange = .2;
+    cell.scaleSpeed = .2;
+    cell.color = [UIColor blueColor].CGColor;
+    cell.greenRange = .5;
+    cell.greenSpeed = .75;
+    
+    cell.contents = (id)[self grayCircle].CGImage;
+    [cell setValue:@"circle" forKeyPath:@"name"]; // For setting parameters later.
+    return cell;
+}
 
 -(CAEmitterCell *)firehoseGrayCircleImageCell
 {
@@ -90,10 +130,8 @@
     cell.velocity = 100;
     cell.emissionRange = M_PI/5.0;
     cell.contents = (id)[self grayCircle].CGImage;
-    
     return cell;
 }
-
 
 -(CAEmitterCell *)grayCircleImageCell
 {
@@ -102,7 +140,7 @@
     cell.lifetime = 1;
     cell.velocity = 100;
     cell.contents = (id)[self grayCircle].CGImage;
-    
+//    [cell setValue:@"circle" forKeyPath:@"name"];
     return cell;
 }
 
