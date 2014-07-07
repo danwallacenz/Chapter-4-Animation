@@ -30,28 +30,37 @@
 
 -(void) runTransition
 {
-    // Create a CIImage for use with the transition as key = 'inputTargetImage'.
-    UIImage* moi = [UIImage imageNamed:@"legs1"];
-//    UIImage* moi = [UIImage imageNamed:@"moi"];
-    CIImage* moi2 = [[CIImage alloc] initWithCGImage:moi.CGImage];
-    self.image1Extent = moi2.extent;
-    
     
     // Create a CIImage for use with the transition as key = 'inputImage'.
-    CIFilter* col = [CIFilter filterWithName:@"CIConstantColorGenerator"];
-    CIColor* cicol = [[CIColor alloc] initWithColor:[UIColor redColor]];
-    [col setValue:cicol forKey:@"inputColor"];
-    CIImage* colorimage = [col valueForKey: @"outputImage"];
+    UIImage* legs0 = [UIImage imageNamed:@"legs0"];
+    CIImage* legs02 = [[CIImage alloc] initWithCGImage:legs0.CGImage];
+    //    self.image1Extent = legs12.extent;
+    
+    // Create a CIImage for use with the transition as key = 'inputTargetImage'.
+    UIImage* legs1 = [UIImage imageNamed:@"legs1"];
+//    UIImage* legs1 = [UIImage imageNamed:@"legs1"];
+    CIImage* legs12 = [[CIImage alloc] initWithCGImage:legs1.CGImage];
+    self.image1Extent = legs12.extent;
+
+    // Create a CIImage for use with the transition as key = 'inputImage'.
+//    CIFilter* col = [CIFilter filterWithName:@"CIConstantColorGenerator"];
+//    CIColor* cicol = [[CIColor alloc] initWithColor:[UIColor redColor]];
+//    [col setValue:cicol forKey:@"inputColor"];
+//    CIImage* colorimage = [col valueForKey: @"outputImage"];
     
     
     // Create the transition.
     CIFilter* tran = [CIFilter filterWithName:@"CIFlashTransition"];
-    [tran setValue: colorimage forKey: @"inputImage"];
-    [tran setValue: moi2 forKey: @"inputTargetImage"];
+//    [tran setValue: colorimage forKey: @"inputImage"];
+    [tran setValue: legs02 forKey: @"inputImage"];
+    [tran setValue: legs12 forKey: @"inputTargetImage"];
     CIVector* center = [CIVector vectorWithX: self.image1Extent.size.width/2.0 Y: self.image1Extent.size.height/2.0];
     [tran setValue:center forKey: @"inputCenter"];
     
+    /* Don’t create a CIContext object every time you render.
+     Contexts store a lot of state information; it’s more efficient to reuse them. */
     self.ciContext = [CIContext contextWithOptions: nil];
+    
     self.transition = tran;
     self.timestamp = 0.0; // signal that we are starting
     
@@ -85,11 +94,11 @@
     sender.paused = YES; // defend against frame loss
     
     [self.transition setValue:@(self.currentFrame) forKey:@"inputTime"];
-    CGImageRef moi = [self.ciContext createCGImage:self.transition.outputImage
+    CGImageRef legs1 = [self.ciContext createCGImage:self.transition.outputImage
                                       fromRect:self.image1Extent];
     [CATransaction setDisableActions:YES];
-    self.view0.layer.contents = (__bridge id)moi;
-    CGImageRelease(moi);
+    self.view0.layer.contents = (__bridge id)legs1;
+    CGImageRelease(legs1);
     
     if (self.currentFrame > 1.0) {
         NSLog(@"%@", @"invalidate");
