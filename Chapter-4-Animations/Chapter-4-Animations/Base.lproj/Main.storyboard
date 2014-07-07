@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -1569,7 +1569,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JKu-on-x76"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bIs-XM-v0H">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsY-2q-VOh">
@@ -1591,18 +1591,26 @@
                                     <action selector="run0ButtonPressed" destination="Z4M-u7-18d" eventType="touchUpInside" id="LWs-Ar-9WN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CIFlashTransition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2U-F0-w1N">
+                                <rect key="frame" x="154" y="328" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nsY-2q-VOh" firstAttribute="leading" secondItem="bIs-XM-v0H" secondAttribute="leading" constant="20" id="42N-hJ-4Qh"/>
+                            <constraint firstItem="f2U-F0-w1N" firstAttribute="top" secondItem="nsY-2q-VOh" secondAttribute="bottom" constant="8" id="9Xg-YE-mWC"/>
                             <constraint firstItem="nsY-2q-VOh" firstAttribute="top" secondItem="AY3-yw-AeQ" secondAttribute="bottom" id="a8U-F8-Nao"/>
+                            <constraint firstItem="f2U-F0-w1N" firstAttribute="leading" secondItem="bIs-XM-v0H" secondAttribute="leading" constant="154" id="eQN-1h-2qY"/>
                             <constraint firstItem="3eM-Dp-7DT" firstAttribute="top" secondItem="AY3-yw-AeQ" secondAttribute="bottom" id="l2I-lO-gDM"/>
                             <constraint firstItem="3eM-Dp-7DT" firstAttribute="leading" secondItem="nsY-2q-VOh" secondAttribute="trailing" constant="8" id="r4J-FE-nAF"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="CITransition Filters" id="bai-Mc-yP3"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="view0" destination="nsY-2q-VOh" id="HBa-4K-c6J"/>
                     </connections>
