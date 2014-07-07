@@ -57,6 +57,29 @@
     CIVector* center = [CIVector vectorWithX: self.image1Extent.size.width/2.0 Y: self.image1Extent.size.height/2.0];
     [tran setValue:center forKey: @"inputCenter"];
     
+
+//    inputMaxStriationRadius
+//    An NSNumber object whose attribute type is CIAttributeTypeScalar and whose display name is Maximum Striation Radius.
+//    Default value: 2.58
+    [tran setValue: @(2.58) forKey: @"inputMaxStriationRadius"];
+    
+//    inputStriationStrength
+//    An NSNumber object whose attribute type is CIAttributeTypeScalar and whose display name is Striation Strength.
+//    Default value: 0.50
+    [tran setValue: @(0.5) forKey: @"inputStriationStrength"];
+    
+//    inputStriationContrast
+//    An NSNumber object whose attribute type is CIAttributeTypeScalar and whose display name is Striation Contrast.
+//    Default value: 1.38
+    [tran setValue: @(1.38) forKey: @"inputStriationContrast"];
+    
+//    inputFadeThreshold
+//    An NSNumber object whose attribute type is CIAttributeTypeScalar and whose display name is Fade Threshold.
+//    Default value: 0.85
+    [tran setValue: @(0.85) forKey: @"inputFadeThreshold"];
+    
+    
+    
     /* Don’t create a CIContext object every time you render.
      Contexts store a lot of state information; it’s more efficient to reuse them. */
     self.ciContext = [CIContext contextWithOptions: nil];
