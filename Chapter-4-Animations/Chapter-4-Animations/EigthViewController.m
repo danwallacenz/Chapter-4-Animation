@@ -79,7 +79,6 @@
     [tran setValue: @(0.85) forKey: @"inputFadeThreshold"];
     
     
-    
     /* Don’t create a CIContext object every time you render.
      Contexts store a lot of state information; it’s more efficient to reuse them. */
     self.ciContext = [CIContext contextWithOptions: nil];
