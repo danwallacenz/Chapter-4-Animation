@@ -14,8 +14,6 @@
 		CB0C257C195EA18800053304 /* RectangleOrEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */; };
 		CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257E195F9F2800053304 /* FifthViewController.m */; };
 		CB24F65E19693D1C00506DFD /* EigthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB24F65D19693D1C00506DFD /* EigthViewController.m */; };
-		CB24F66019693E1D00506DFD /* legs0.JPG in Resources */ = {isa = PBXBuildFile; fileRef = CB24F65F19693E1D00506DFD /* legs0.JPG */; };
-		CB24F66219693E5200506DFD /* legs1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = CB24F66119693E5200506DFD /* legs1.JPG */; };
 		CBAA80D71960E07200C0ED13 /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80D61960E07200C0ED13 /* SixthViewController.m */; };
 		CBAA80DD1960EEB800C0ED13 /* CompassLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DC1960EEB800C0ED13 /* CompassLayer.m */; };
 		CBAA80E01960EECA00C0ED13 /* CompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DF1960EECA00C0ED13 /* CompassView.m */; };
@@ -66,8 +64,6 @@
 		CB0C257E195F9F2800053304 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = ../FifthViewController.m; sourceTree = "<group>"; };
 		CB24F65C19693D1C00506DFD /* EigthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EigthViewController.h; sourceTree = "<group>"; };
 		CB24F65D19693D1C00506DFD /* EigthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EigthViewController.m; sourceTree = "<group>"; };
-		CB24F65F19693E1D00506DFD /* legs0.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = legs0.JPG; sourceTree = "<group>"; };
-		CB24F66119693E5200506DFD /* legs1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = legs1.JPG; sourceTree = "<group>"; };
 		CBAA80D51960E07200C0ED13 /* SixthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewController.h; sourceTree = "<group>"; };
 		CBAA80D61960E07200C0ED13 /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
 		CBAA80DB1960EEB800C0ED13 /* CompassLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassLayer.h; sourceTree = "<group>"; };
@@ -232,8 +228,6 @@
 				CBF9601C19592F9D00BE37A1 /* Images.xcassets */,
 				E04683D3196A2AB20003DBC8 /* legs0.png */,
 				E04683D4196A2AB20003DBC8 /* legs1.png */,
-				CB24F65F19693E1D00506DFD /* legs0.JPG */,
-				CB24F66119693E5200506DFD /* legs1.JPG */,
 				CBAA80E2196157F700C0ED13 /* sprites.png */,
 				CBAA80E71962B9B200C0ED13 /* boat.gif */,
 				CB0C2575195E9E0C00053304 /* smiley.imageset */,
@@ -353,9 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB24F66019693E1D00506DFD /* legs0.JPG in Resources */,
 				CB0C2578195E9E0C00053304 /* Contents.json in Resources */,
-				CB24F66219693E5200506DFD /* legs1.JPG in Resources */,
 				CB0C2579195E9E0C00053304 /* smileyiPhone.png in Resources */,
 				CBAA80E81962B9B200C0ED13 /* boat.gif in Resources */,
 				E04683D5196A2AB20003DBC8 /* legs0.png in Resources */,
