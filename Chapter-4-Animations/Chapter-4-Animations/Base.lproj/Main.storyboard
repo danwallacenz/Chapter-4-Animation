@@ -922,13 +922,14 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="vqx-cM-9g5" kind="relationship" relationship="viewControllers" id="4WF-kp-Qon"/>
                         <segue destination="Z4M-u7-18d" kind="relationship" relationship="viewControllers" id="tnJ-Ea-4Tp"/>
                         <segue destination="Iqm-Ez-1qe" kind="relationship" relationship="viewControllers" id="LDm-of-rlQ"/>
                         <segue destination="Nkr-7I-7O7" kind="relationship" relationship="viewControllers" id="IcX-hs-wjc"/>
@@ -941,7 +942,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="766"/>
+            <point key="canvasLocation" x="1543" y="2290"/>
         </scene>
         <!--Fifth View Controller - Implicit Layer Animation-->
         <scene sceneID="cB6-L0-CY0">
@@ -1560,6 +1561,26 @@
             </objects>
             <point key="canvasLocation" x="2993" y="1497"/>
         </scene>
+        <!--Ninth View Controller - UIKit Dynamics-->
+        <scene sceneID="6kI-WF-iQ1">
+            <objects>
+                <viewController id="vqx-cM-9g5" customClass="NinthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TnG-Mn-vqb"/>
+                        <viewControllerLayoutGuide type="bottom" id="o1P-Qx-9G7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JfE-5u-Nzc">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="UIKit Dynamics" id="uWy-at-W4x"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVr-5v-Ucf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="5864"/>
+        </scene>
         <!--Eigth View Controller - CITransition Filters-->
         <scene sceneID="MRd-zk-AsU">
             <objects>
@@ -1569,7 +1590,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JKu-on-x76"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bIs-XM-v0H">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsY-2q-VOh">
@@ -1608,9 +1629,10 @@
                             <constraint firstItem="3eM-Dp-7DT" firstAttribute="top" secondItem="AY3-yw-AeQ" secondAttribute="bottom" id="l2I-lO-gDM"/>
                             <constraint firstItem="3eM-Dp-7DT" firstAttribute="leading" secondItem="nsY-2q-VOh" secondAttribute="trailing" constant="8" id="r4J-FE-nAF"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="CITransition Filters" id="bai-Mc-yP3"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="view0" destination="nsY-2q-VOh" id="HBa-4K-c6J"/>
                     </connections>

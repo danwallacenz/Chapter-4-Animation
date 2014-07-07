@@ -14,6 +14,7 @@
 		CB0C257C195EA18800053304 /* RectangleOrEllipseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257B195EA18800053304 /* RectangleOrEllipseView.m */; };
 		CB0C257F195F9F2800053304 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C257E195F9F2800053304 /* FifthViewController.m */; };
 		CB24F65E19693D1C00506DFD /* EigthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB24F65D19693D1C00506DFD /* EigthViewController.m */; };
+		CB309534196A95CE009768C1 /* NinthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB309533196A95CE009768C1 /* NinthViewController.m */; };
 		CBAA80D71960E07200C0ED13 /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80D61960E07200C0ED13 /* SixthViewController.m */; };
 		CBAA80DD1960EEB800C0ED13 /* CompassLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DC1960EEB800C0ED13 /* CompassLayer.m */; };
 		CBAA80E01960EECA00C0ED13 /* CompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA80DF1960EECA00C0ED13 /* CompassView.m */; };
@@ -64,6 +65,8 @@
 		CB0C257E195F9F2800053304 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FifthViewController.m; path = ../FifthViewController.m; sourceTree = "<group>"; };
 		CB24F65C19693D1C00506DFD /* EigthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EigthViewController.h; sourceTree = "<group>"; };
 		CB24F65D19693D1C00506DFD /* EigthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EigthViewController.m; sourceTree = "<group>"; };
+		CB309532196A95CE009768C1 /* NinthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinthViewController.h; sourceTree = "<group>"; };
+		CB309533196A95CE009768C1 /* NinthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinthViewController.m; sourceTree = "<group>"; };
 		CBAA80D51960E07200C0ED13 /* SixthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewController.h; sourceTree = "<group>"; };
 		CBAA80D61960E07200C0ED13 /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
 		CBAA80DB1960EEB800C0ED13 /* CompassLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassLayer.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 		CBAA80D81960EE6600C0ED13 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB309532196A95CE009768C1 /* NinthViewController.h */,
+				CB309533196A95CE009768C1 /* NinthViewController.m */,
 				CB24F65C19693D1C00506DFD /* EigthViewController.h */,
 				CB24F65D19693D1C00506DFD /* EigthViewController.m */,
 				CBAA80E91967900100C0ED13 /* SeventhViewController.h */,
@@ -388,6 +393,7 @@
 				CBF9601219592F9D00BE37A1 /* AppDelegate.m in Sources */,
 				CBAA80EB1967900100C0ED13 /* SeventhViewController.m in Sources */,
 				CBF9601819592F9D00BE37A1 /* FirstViewController.m in Sources */,
+				CB309534196A95CE009768C1 /* NinthViewController.m in Sources */,
 				CBF9600E19592F9D00BE37A1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
