@@ -80,6 +80,8 @@
     for (NSObject *filter in allFilters) {
         NSLog(@"CIFilter %@", filter);
     }
+    
+    self.view0.layer.contents = (__bridge id)([UIImage imageNamed:@"legs0"].CGImage);
 }
 
 #define SCALE 1.0 // try 0.2 for slow motion, looks better in simulator
