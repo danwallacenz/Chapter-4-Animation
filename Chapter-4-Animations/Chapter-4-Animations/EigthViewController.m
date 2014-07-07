@@ -12,12 +12,12 @@
 
 @property (weak, nonatomic) IBOutlet UIView *view0;
 /*
- CIFilter * _tran;
- CGRect _moiextent;
- double _frame;
+ CIFilter * self.transition;
+ CGRect self.image1Extent;
+ double self.currentFrame;
  
  CFTimeInterval _timestamp;
- CIContext* _con;
+ CIContext* self.ciContext;
  */
 //@property (strong, nonatomic) UIImage *legs0;
 //@property (strong, nonatomic) CIImage *legs0CIImage;
@@ -25,30 +25,31 @@
 //
 //@property (strong, nonatomic) UIImage *legs1;
 //@property (strong, nonatomic) CIImage *legs1CIImage;
-//@property CGRect image1Extent;
+@property CGRect image1Extent;
 //
-//@property CIFilter *transition;
-//@property CFTimeInterval timestamp;
-//@property CIContext* ciContext;
-//@property double currentFrame;
+@property CIFilter *transition;
+@property CFTimeInterval timestamp;
+@property CIContext* ciContext;
+@property double currentFrame;
 
 
 @end
 
-@implementation EigthViewController {
-    CIFilter* _tran;
-    CGRect _moiextent;
-    double _frame;
-    
-    CFTimeInterval _timestamp;
-    CIContext* _con;
-}
+@implementation EigthViewController
+//{
+//    CIFilter* self.transition;
+//    CGRect self.image1Extent;
+//    double self.currentFrame;
+//    
+//    CFTimeInterval _timestamp;
+//    CIContext* self.ciContext;
+//}
 
 - (IBAction)run0ButtonPressed
 {
 //    UIImage* moi = [UIImage imageNamed:@"moi"];
 //    CIImage* moi2 = [[CIImage alloc] initWithCGImage:moi.CGImage];
-//    self->_moiextent = moi2.extent;
+//    self->self.image1Extent = moi2.extent;
     
 //    CIFilter* col = [CIFilter filterWithName:@"CIConstantColorGenerator"];
 //    CIColor* cicol = [[CIColor alloc] initWithColor:[UIColor redColor]];
@@ -58,11 +59,11 @@
 //    CIFilter* tran = [CIFilter filterWithName:@"CIFlashTransition"];
 //    [tran setValue:colorimage forKey:@"inputImage"];
 //    [tran setValue:moi2 forKey:@"inputTargetImage"];
-//    CIVector* center = [CIVector vectorWithX:self->_moiextent.size.width/2.0 Y:self->_moiextent.size.height/2.0];
+//    CIVector* center = [CIVector vectorWithX:self->self.image1Extent.size.width/2.0 Y:self->self.image1Extent.size.height/2.0];
 //    [tran setValue:center forKey:@"inputCenter"];
     
-//    self->_con = [CIContext contextWithOptions:nil];
-//    self->_tran = tran;
+//    self->self.ciContext = [CIContext contextWithOptions:nil];
+//    self->self.transition = tran;
 //    self->_timestamp = 0.0; // signal that we are starting
     
     // initial state
@@ -107,7 +108,7 @@
     UIImage* moi = [UIImage imageNamed:@"legs1"];
 //    UIImage* moi = [UIImage imageNamed:@"moi"];
     CIImage* moi2 = [[CIImage alloc] initWithCGImage:moi.CGImage];
-    self->_moiextent = moi2.extent;
+    self.image1Extent = moi2.extent;
     
     
     // Create a CIImage for use with the transition as key = 'inputImage'.
@@ -121,12 +122,12 @@
     CIFilter* tran = [CIFilter filterWithName:@"CIFlashTransition"];
     [tran setValue: colorimage forKey: @"inputImage"];
     [tran setValue: moi2 forKey: @"inputTargetImage"];
-    CIVector* center = [CIVector vectorWithX: self->_moiextent.size.width/2.0 Y: self->_moiextent.size.height/2.0];
+    CIVector* center = [CIVector vectorWithX: self.image1Extent.size.width/2.0 Y: self.image1Extent.size.height/2.0];
     [tran setValue:center forKey: @"inputCenter"];
     
-    self->_con = [CIContext contextWithOptions: nil];
-    self->_tran = tran;
-    self->_timestamp = 0.0; // signal that we are starting
+    self.ciContext = [CIContext contextWithOptions: nil];
+    self.transition = tran;
+    self.timestamp = 0.0; // signal that we are starting
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
@@ -208,7 +209,8 @@
 
 }
 
-#define SCALE 0.2 // try 0.2 for slow motion, looks better in simulator
+//#define SCALE 0.2 // try 0.2 for slow motion, looks better in simulator
+#define SCALE 1.0 // try 0.2 for slow motion, looks better in simulator
 
 
 //- (void) nextFrame: (CADisplayLink*) sender {
@@ -269,28 +271,28 @@
 
 - (void) nextFrameOriginal: (CADisplayLink*) sender {
     
-    if (self->_timestamp < 0.01) { // pick up and store first timestamp
-        self->_timestamp = sender.timestamp;
-        self->_frame = 0.0;
+    if (self.timestamp < 0.01) { // pick up and store first timestamp
+        self.timestamp = sender.timestamp;
+        self.currentFrame = 0.0;
     } else { // calculate frame
-        self->_frame = (sender.timestamp - self->_timestamp) * SCALE;
+        self.currentFrame = (sender.timestamp - self->_timestamp) * SCALE;
     }
     sender.paused = YES; // defend against frame loss
     
-    [_tran setValue:@(self->_frame) forKey:@"inputTime"];
-    CGImageRef moi = [self->_con createCGImage:_tran.outputImage
-                                      fromRect:_moiextent];
+    [self.transition setValue:@(self.currentFrame) forKey:@"inputTime"];
+    CGImageRef moi = [self.ciContext createCGImage:self.transition.outputImage
+                                      fromRect:self.image1Extent];
     [CATransaction setDisableActions:YES];
     self.view0.layer.contents = (__bridge id)moi;
     CGImageRelease(moi);
     
-    if (_frame > 1.0) {
+    if (self.currentFrame > 1.0) {
         NSLog(@"%@", @"invalidate");
         [sender invalidate];
     }
     sender.paused = NO;
     
-    NSLog(@"here %f", self->_frame); // useful for seeing dropped frame rate
+    NSLog(@"here %f", self.currentFrame); // useful for seeing dropped frame rate
     
     
 }
