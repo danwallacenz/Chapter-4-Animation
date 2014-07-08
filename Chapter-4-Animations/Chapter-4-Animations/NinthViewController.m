@@ -7,16 +7,30 @@
 //
 
 #import "NinthViewController.h"
+#import "DropBounceAndRollBehavior.h"
 
 @interface NinthViewController () <UICollisionBehaviorDelegate, UIDynamicAnimatorDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *mars;
+@property (weak, nonatomic) IBOutlet UIImageView *mars2;
 
 @property (strong, nonatomic)UIDynamicAnimator *animator;
+@property (strong, nonatomic)UIDynamicAnimator *singleUIDynamicBehaviorAnimator;
+
+
 
 @end
 
 @implementation NinthViewController
+
+- (IBAction)runSingleUIDynamicBehaviorSubclassButtonPressed:(UIButton *)sender
+{
+    [sender setEnabled:NO];
+    
+    DropBounceAndRollBehavior *dropBounceAndRollBehavior = [[DropBounceAndRollBehavior alloc] initWithView:self.mars2];
+    [self.singleUIDynamicBehaviorAnimator addBehavior:dropBounceAndRollBehavior];
+    
+}
 
 - (IBAction)runButtonPressed:(UIButton *)sender
 {
@@ -90,13 +104,17 @@
 }
 
 
-#pragma mark - UIViewCOntroller methods
+#pragma mark - UIViewController methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    self.animator.delegate = self;
+    
+    
+    self.singleUIDynamicBehaviorAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     self.animator.delegate = self;
 }
 
