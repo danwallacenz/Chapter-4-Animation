@@ -10,40 +10,48 @@
 
 @interface NinthViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *mars;
+
+@property (strong, nonatomic)UIDynamicAnimator *animator;
+
 @end
 
 @implementation NinthViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (IBAction)runButtonPressed:(UIButton *)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    UIGravityBehavior *gravity = [UIGravityBehavior new];
+    /*
+     If a dynamic behavior’s action block refers to the dynamic behavior
+     itself, there’s a danger of a retain cycle, because the behavior retains
+     the block which refers to the behavior. Express yourself in some other
+     way (perhaps attaching the block to some other behavior), or use
+     the weak–strong dance to break the retain cycle in the block.
+     */
+    gravity.action = ^{
+        NSArray *visibleItems = [self.animator itemsInRect:self.view.bounds];
+        if(NSNotFound ==[visibleItems indexOfObject:self.mars]){
+            [self.animator removeAllBehaviors];
+            [self.mars removeFromSuperview];
+        }
+    };
+    
+    [self.animator addBehavior:gravity];
+    [gravity addItem:self.mars];
+    
+    UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[self.mars] mode:UIPushBehaviorModeInstantaneous];
+    push.pushDirection = CGVectorMake(2, 0);
+    [self.animator addBehavior:push];
+    
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
