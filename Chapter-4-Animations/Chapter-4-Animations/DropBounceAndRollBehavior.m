@@ -69,8 +69,8 @@
     collision.collisionMode = UICollisionBehaviorModeBoundaries;
     collision.collisionDelegate = self;
     [collision addBoundaryWithIdentifier:@"floor"
-                               fromPoint:CGPointMake(0, self.view.bounds.size.height)
-                                 toPoint: CGPointMake(self.view.bounds.size.width, self.view.bounds.size.height)];
+                               fromPoint:CGPointMake(0, superView.bounds.size.height)
+                                 toPoint: CGPointMake(superView.bounds.size.width, superView.bounds.size.height)];
     [self addChildBehavior:collision];
     [collision addItem:self.view];
     
