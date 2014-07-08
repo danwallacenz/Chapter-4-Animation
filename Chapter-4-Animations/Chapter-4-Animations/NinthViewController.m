@@ -43,7 +43,7 @@
     push.pushDirection = CGVectorMake(2, 0);
     [self.animator addBehavior:push];
     
-    
+    UICollisionBehavior *collision = [UICollisionBehavior new];
 }
 
 - (void)viewDidLoad
