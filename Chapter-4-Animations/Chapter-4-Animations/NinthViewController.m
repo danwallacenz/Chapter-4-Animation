@@ -45,6 +45,8 @@
      the weak–strong dance to break the retain cycle in the block.
      */
     gravity.action = ^{
+        NSLog(@"Elapsed time = %f", self.animator.elapsedTime);
+        NSLog(@"mars center = %@", [NSValue valueWithCGPoint: self.mars.center]);
         NSArray *visibleItems = [self.animator itemsInRect:self.view.bounds];
         if(NSNotFound ==[visibleItems indexOfObject:self.mars]){
             [self.animator removeAllBehaviors];
